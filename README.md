@@ -1,2 +1,3 @@
 # SoftUni-S-E
-Course exercises | SoftUni
+
+Courses from the main program in SoftUni.
