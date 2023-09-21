@@ -1,0 +1,20 @@
+package L01_FirstStepsInCoding_Exercise;
+import java.util.Scanner;
+public class P04_VacationBooksList {
+   public static void main(String[] args){
+       Scanner scanner = new Scanner(System.in);
+
+
+       int countPages = Integer.parseInt(scanner.nextLine());
+       int pagesPerHour = Integer.parseInt(scanner.nextLine());
+       int countDays = Integer.parseInt(scanner.nextLine());
+
+       int totalTimeForReading = countPages / pagesPerHour;
+       int neededHoursPerDay = totalTimeForReading / countDays;
+       System.out.print(neededHoursPerDay);
+
+
+
+
+   }
+}
