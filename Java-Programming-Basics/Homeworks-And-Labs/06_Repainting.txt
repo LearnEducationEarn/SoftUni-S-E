@@ -1,0 +1,42 @@
+
+
+package L01_FirstStepsInCoding_Exercise;
+import java.util.Scanner;
+public class P06_Repainting {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        int neededQuantityNylon = Integer.parseInt(scanner.nextLine());
+        int neededQuantityPaint = Integer.parseInt(scanner.nextLine());
+        int neededThinnerInLitters = Integer.parseInt(scanner.nextLine());
+        int hours = Integer.parseInt(scanner.nextLine());
+
+
+        double nylon = 1.50;
+        double paint = 14.50;
+        double thinnerForPaint = 5.00;
+
+        double nylonSum = (neededQuantityNylon + 2) * nylon;
+        double paintSum =(neededQuantityPaint + neededQuantityPaint * 0.10) * paint;
+        double thinnerSum = neededThinnerInLitters * thinnerForPaint;
+        double bagsSum = 0.40;
+
+        double totalSumForMaterials = nylonSum + paintSum + thinnerSum + bagsSum;
+
+        double sumForWorkers = totalSumForMaterials * 0.30 * hours;
+
+        double totalSum = totalSumForMaterials + sumForWorkers;
+
+        System.out.println(totalSum);
+
+
+
+
+
+
+
+
+
+
+    }
+}
