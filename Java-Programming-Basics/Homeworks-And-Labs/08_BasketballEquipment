@@ -1,0 +1,24 @@
+
+
+package L01_FirstStepsInCoding_Exercise;
+import java.util.Scanner;
+public class P08_BasketballEquipment {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        int annualTax = Integer.parseInt(scanner.nextLine());
+
+        double priceForYear = annualTax;
+        double sneakers = priceForYear - priceForYear * 0.40;
+
+        double outfit = sneakers - sneakers * 0.20;
+        double ballPrice = outfit * 1/4;
+        double priceForAccessories =  ballPrice * 1/5;
+
+        double totalPrice = annualTax + sneakers + outfit + ballPrice + priceForAccessories;
+
+        System.out.println(totalPrice);
+
+
+    }
+}
