@@ -1,0 +1,29 @@
+package L01_FirstStepsInCoding_Exercise;
+import java.util.Scanner;
+public class P05_SuppliesForSchool {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        int countPens = Integer.parseInt(scanner.nextLine());
+        int countPacksHighlighter = Integer.parseInt(scanner.nextLine());
+        int cleaningAgentLitters = Integer.parseInt(scanner.nextLine());
+        int percentageReduction = Integer.parseInt(scanner.nextLine());
+
+        double packagePens = 5.80;
+        double packageHighlighters = 7.20;
+        double cleaningAgent = 1.20;
+
+        double packagePensPrice = countPens * packagePens;
+        double packageHighlightersPrice = countPacksHighlighter * packageHighlighters;
+        double cleaningAgentPrice = cleaningAgentLitters * cleaningAgent;
+
+        double totalPrice = packagePensPrice + packageHighlightersPrice + cleaningAgentPrice;
+
+        double priceWithReduction = totalPrice - totalPrice * percentageReduction / 100;
+
+        System.out.println(priceWithReduction);
+
+
+
+    }
+}
