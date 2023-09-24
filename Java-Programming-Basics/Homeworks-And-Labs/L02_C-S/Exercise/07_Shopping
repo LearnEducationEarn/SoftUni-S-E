@@ -1,0 +1,36 @@
+
+package L02_ConditionalStatements_Exercise;
+
+import java.util.Scanner;
+
+public class L07_Shopping {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        int countVideoCard = Integer.parseInt(scanner.nextLine());
+        int countProcessor = Integer.parseInt(scanner.nextLine());
+        int countRam = Integer.parseInt(scanner.nextLine());
+
+        double videoCardPrice = countVideoCard * 250;
+        double processorPrice = countProcessor * (videoCardPrice * 0.35);
+        double ramPrice = countRam * (videoCardPrice * 0.10);
+
+        double finalSum = videoCardPrice + processorPrice + ramPrice;
+
+        if (countVideoCard > countProcessor){
+            finalSum = finalSum * 0.85;
+        }
+        double diff = Math.abs(finalSum - budget);
+
+
+        if (budget >= finalSum){
+            System.out.printf("You have %.2f leva left!", diff);
+        }else {
+            System.out.printf("Not enough money! You need %.2f leva more!",diff );
+
+        }
+
+
+    }
+}
