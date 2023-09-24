@@ -1,0 +1,47 @@
+
+package L02_ConditionalStatements_Exercise;
+
+import java.util.Scanner;
+
+public class L04_ToyShop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double pricePerTrip = Double.parseDouble(scanner.nextLine());
+        int countPuzzles = Integer.parseInt(scanner.nextLine());
+        int countTalkingDolls = Integer.parseInt(scanner.nextLine());
+        int countBears = Integer.parseInt(scanner.nextLine());
+        int countMinions = Integer.parseInt(scanner.nextLine());
+        int countTrucks = Integer.parseInt(scanner.nextLine());
+
+
+        double puzzlesPrice = 2.60;
+        double talkingDollPrice = 3;
+        double furryBearPrice = 4.10;
+        double minionPrice = 8.20;
+        double truckPrice  = 2;
+
+
+        double totalToysPrice = puzzlesPrice * countPuzzles + talkingDollPrice * countTalkingDolls + furryBearPrice * countBears + countMinions * minionPrice + countTrucks * truckPrice;
+        double countToys = countPuzzles + countTalkingDolls + countBears + countMinions + countTrucks;
+
+
+        if (countToys >= 50){
+            totalToysPrice = totalToysPrice - totalToysPrice * 0.25;
+        }
+
+            totalToysPrice = totalToysPrice - totalToysPrice * 0.10;
+
+        if (totalToysPrice >= pricePerTrip){
+            double restMoney = totalToysPrice - pricePerTrip;
+            System.out.printf("Yes! %.2f lv left.", restMoney);
+
+        }else {
+            double neededMoney = pricePerTrip - totalToysPrice;
+            System.out.printf("Not enough money! %.2f lv needed.",neededMoney);
+        }
+
+
+
+    }
+}
