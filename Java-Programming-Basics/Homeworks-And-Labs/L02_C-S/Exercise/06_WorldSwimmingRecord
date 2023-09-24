@@ -1,0 +1,36 @@
+
+package L02_ConditionalStatements_Exercise;
+
+import java.util.Scanner;
+
+public class L06_WorldSwimmingRecord {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double recordInSeconds = Double.parseDouble(scanner.nextLine());
+        double distanceInMeters = Double.parseDouble(scanner.nextLine());
+        double timeInSeconds = Double.parseDouble(scanner.nextLine());
+
+        double delaySeconds = Math.floor(distanceInMeters  / 15) * 12.5 ;
+
+        double finalTIme = (timeInSeconds * distanceInMeters) + delaySeconds;
+
+
+        if (recordInSeconds > finalTIme){
+            System.out.printf("Yes, he succeeded! The new world record is %.2f seconds.", finalTIme);
+
+
+        }else {
+            double result = Math.abs(recordInSeconds - finalTIme);
+            System.out.printf("No, he failed! He was %.2f seconds slower.", result);
+        }
+
+
+
+
+
+
+
+
+    }
+}
