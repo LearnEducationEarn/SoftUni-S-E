@@ -1,0 +1,25 @@
+
+package L02_ConditionalStatements_Exercise;
+
+import java.util.Scanner;
+
+public class L03_TimePlusFifteenMinutes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int hour = Integer.parseInt(scanner.nextLine());
+        int minutes = Integer.parseInt(scanner.nextLine());
+
+        int total = hour * 60 + minutes + 15;
+        int totalHour = total / 60;
+        int totalMinutes = total % 60;
+
+        if (totalHour >= 24) {
+            totalHour = 0;
+            System.out.printf("%d:%02d", totalHour, totalMinutes);
+        } else {
+            System.out.printf("%d:%02d", totalHour, totalMinutes);
+        }
+
+    }
+}
