@@ -1,0 +1,54 @@
+
+package L03_ConditionalStatementsAdvanced_EXC;
+
+import java.util.Scanner;
+
+public class P07_HotelRoom {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String month = scanner.nextLine();
+        int numberOfNights = Integer.parseInt(scanner.nextLine());
+        double priceForStudio = 0;
+        double priceForApartment = 0;
+
+
+        switch (month) {
+            case "May":
+            case "October":
+                
+                priceForApartment = numberOfNights * 65;
+                priceForStudio = numberOfNights * 50;
+
+               
+                if (numberOfNights > 14) {
+                    priceForStudio = priceForStudio * 0.7; 
+                    priceForApartment = priceForApartment * 0.9; 
+                } else if (numberOfNights > 7) {
+                    priceForStudio = priceForStudio * 0.95; 
+                }
+                break;
+            case "June":
+            case "September":
+                priceForStudio = numberOfNights * 75.20;
+                priceForApartment = numberOfNights * 68.70;
+                if (numberOfNights > 14) {
+                    priceForStudio = priceForStudio * 0.80; 
+                    priceForApartment = priceForApartment * 0.90; 
+                }
+                break;
+            case "July":
+            case "August":
+                priceForStudio = numberOfNights * 76;
+                priceForApartment = numberOfNights * 77;
+                if (numberOfNights > 14) {
+                    priceForApartment = priceForApartment * 0.90; 
+                }
+                break;
+        }
+
+
+        System.out.printf("Apartment: %.2f lv.%n", priceForApartment);
+        System.out.printf("Studio: %.2f lv.", priceForStudio);
+    }
+}
