@@ -1,0 +1,63 @@
+
+package L03_ConditionalStatementsAdvanced_Lab;
+
+import java.util.Scanner;
+
+public class P12_TradeCommissions {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String town = scanner.nextLine();
+        double salesCapacity = Double.parseDouble(scanner.nextLine());
+        double commission = 0;
+        switch (town) {
+
+            case "Sofia":
+                if (salesCapacity <= 500) {
+                    commission = 0.05;
+                } else if (salesCapacity <= 1000) {
+                    commission = 0.07;
+                } else if (salesCapacity <= 10000) {
+                    commission = 0.08;
+                } else {
+                    commission = 0.12;
+                }
+                break;
+            case "Varna":
+                if (salesCapacity <= 500) {
+                    commission = 0.045;
+                } else if (salesCapacity <= 1000) {
+                    commission = 0.075;
+                } else if (salesCapacity <= 10000) {
+                    commission = 0.10;
+                } else {
+                    commission = 0.13;
+                }
+                break;
+            case "Plovdiv":
+                if (salesCapacity <= 500) {
+                    commission = 0.055;
+                } else if (salesCapacity <= 1000) {
+                    commission = 0.08;
+                } else if (salesCapacity <= 10000) {
+                    commission = 0.12;
+                } else {
+                    commission = 0.145;
+                }
+                break;
+
+        }
+        if (town.equals("Sofia") || town.equals("Varna") || town.equals("Plovdiv")) {
+            if (salesCapacity <= 0) {
+                System.out.println("error");
+            } else {
+                double total = salesCapacity * commission;
+                System.out.printf("%.2f", total);
+            }
+        } else {
+            System.out.println("error");
+        }
+
+
+    }
+}
