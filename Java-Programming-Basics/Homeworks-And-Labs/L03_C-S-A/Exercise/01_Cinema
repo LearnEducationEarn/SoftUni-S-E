@@ -1,1 +1,35 @@
 
+
+package L03_ConditionalStatementsAdvanced_Exercise;
+
+import java.util.Scanner;
+
+public class L01_Cinema {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String typeProjection = scanner.nextLine();
+        int row = Integer.parseInt(scanner.nextLine());
+        int column = Integer.parseInt(scanner.nextLine());
+
+        double price = 0;
+
+        if (typeProjection.equals("Premiere")) {
+            price = 12.00;
+
+
+        } else if (typeProjection.equals("Normal")) {
+            price = 7.50;
+
+
+        } else if (typeProjection.equals("Discount")) {
+            price = 5.00;
+
+
+        }
+        double total = row * column * price;
+        System.out.printf("%.2f leva", total);
+
+
+    }
+}
