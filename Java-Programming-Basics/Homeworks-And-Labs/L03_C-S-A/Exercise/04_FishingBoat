@@ -1,0 +1,61 @@
+
+package L03_ConditionalStatementsAdvanced_Exercise;
+
+import java.util.Scanner;
+
+public class P04_FishingBoat {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int budget = Integer.parseInt(scanner.nextLine());
+        String season = scanner.nextLine();
+        int countFisherman = Integer.parseInt(scanner.nextLine());
+        double price = 0;
+        switch (season) {
+
+            case "Spring":
+                price = 3000;
+                if (countFisherman <= 6) {
+                    price = price - price * 10 / 100;
+                } else if (countFisherman <= 11) {
+                    price = price - price * 15 / 100;
+                } else {
+                    price = price - price * 25 / 100;
+                }
+                break;
+            case "Summer":
+            case "Autumn":
+                price = 4200;
+                if (countFisherman <= 6) {
+                    price = price - price * 10 / 100;
+                } else if (countFisherman <= 11) {
+                    price = price - price * 15 / 100;
+                } else {
+                    price = price - price * 25 / 100;
+                }
+                break;
+            case "Winter":
+                price = 2600;
+                if (countFisherman <= 6) {
+                    price = price - price * 10 / 100;
+                } else if (countFisherman <= 11) {
+                    price = price - price * 15 / 100;
+                } else {
+                    price = price - price * 25 / 100;
+                }
+                break;
+        }
+        if (season.equals("Spring") || season.equals("Summer") || season.equals("Winter")) {
+            if (countFisherman % 2 == 0) {
+                price = price - price * 5 / 100;
+
+            }
+        }
+        double totalPrice = Math.abs(budget - price);
+        if (budget >= price) {
+            System.out.printf("Yes! You have %.2f leva left.", totalPrice);
+        } else {
+            System.out.printf("Not enough money! You need %.2f leva.", totalPrice);
+        }
+    }
+}
