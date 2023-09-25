@@ -1,0 +1,53 @@
+
+package L03_ConditionalStatementsAdvanced_EXC;
+
+import java.util.Scanner;
+
+public class P09_SkiTrip {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int days = Integer.parseInt(scanner.nextLine());
+        String roomType = scanner.nextLine();
+        String assessment = scanner.nextLine();
+        int nights = days - 1;
+        double pricePerNight = 0;
+
+        switch (roomType) {
+            case "room for one person":
+                pricePerNight = nights * 18;
+                break;
+            case "apartment":
+                pricePerNight = nights * 25;
+                if (days < 10) {
+                    pricePerNight = pricePerNight - pricePerNight * 0.30;
+
+                } else if (days > 10 && days <= 15) {
+                    pricePerNight = pricePerNight - pricePerNight * 0.35;
+                } else {
+                    pricePerNight = pricePerNight - pricePerNight * 0.50;
+                }
+                break;
+            case "president apartment":
+                pricePerNight = nights * 35;
+                if (days < 10) {
+                    pricePerNight = pricePerNight - pricePerNight * 0.10;
+                } else if (days > 10 && days <= 15) {
+                    pricePerNight = pricePerNight - pricePerNight * 0.15;
+                } else {
+                    pricePerNight = pricePerNight - pricePerNight * 0.20;
+                }
+                break;
+        }
+        if (assessment.equals("positive")) {
+            pricePerNight = pricePerNight + pricePerNight * 0.25;
+
+        } else {
+            pricePerNight = pricePerNight * 0.90;
+        }
+        System.out.printf("%.2f", pricePerNight);
+
+
+    }
+
+
+}
