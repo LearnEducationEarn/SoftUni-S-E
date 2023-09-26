@@ -1,0 +1,21 @@
+
+package L04_ForLoop_Lab;
+
+import java.util.Scanner;
+
+public class L05_CharacterSequence_3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+
+        for (int symbol = 0; symbol <= text.length() - 1; symbol++) {
+
+            char sym = text.charAt(symbol);
+            System.out.println(sym);
+
+
+        }
+
+    }
+}
