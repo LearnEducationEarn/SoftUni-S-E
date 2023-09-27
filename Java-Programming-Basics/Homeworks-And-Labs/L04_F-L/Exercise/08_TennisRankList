@@ -1,0 +1,37 @@
+
+import java.util.Scanner;
+
+public class P08_TennisRanklist {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countTournaments = Integer.parseInt(scanner.nextLine());
+        int countPointsAtStart = Integer.parseInt(scanner.nextLine());
+
+        double countWin = 0;
+
+        double totalPoints = countPointsAtStart;
+
+        for (int i = 1; i <= countTournaments; i++) {
+            String currentTournamentStage = scanner.nextLine();
+
+            switch (currentTournamentStage) {
+                case "W":
+                    totalPoints += 2000;
+                    countWin++;
+                    break;
+                case "F":
+                   totalPoints += 1200;
+                    break;
+                case "SF":
+                    totalPoints += 720;
+                    break;
+            }
+        }
+        double averagePoints = (totalPoints - countPointsAtStart) / (countTournaments* 1.0) ;
+        double totalWinPercent = Math.abs(countWin / countTournaments * 100);
+        System.out.printf("Final points: %.0f%n", totalPoints);
+        System.out.printf("Average points: %.0f%n", Math.floor(averagePoints));
+       System.out.printf("%.2f%%",totalWinPercent);
+    }
+}
