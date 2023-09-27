@@ -1,0 +1,46 @@
+
+import java.util.Scanner;
+
+public class P05_Salary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int countOpenedTabs = Integer.parseInt(scanner.nextLine());
+        int salary = Integer.parseInt(scanner.nextLine());
+        boolean salaryIsLost = false;
+
+        for (int i = 1; i <= countOpenedTabs; i++) {
+            String currentSite = scanner.nextLine();
+
+            switch (currentSite) {
+
+                case "Facebook":
+                case "facebook":
+                    salary -= 150;
+                    break;
+                case "Instagram":
+                case "instagram":
+                   salary -= 100;
+                    break;
+                case "Reddit":
+                case "reddit":
+                    salary -= 50;
+                    break;
+            }
+        if (salary <= 0){
+            salaryIsLost = true;
+            break;
+        }
+        }
+        if (salaryIsLost){
+            System.out.println("You have lost your salary.");
+        }else {
+            System.out.println(salary);
+
+
+        }
+
+
+    }
+}
