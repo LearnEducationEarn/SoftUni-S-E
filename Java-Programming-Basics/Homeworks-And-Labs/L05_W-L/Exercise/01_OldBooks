@@ -1,0 +1,35 @@
+
+package L05_WhileLoop_Exercise;
+import java.util.Scanner;
+public class L01_OldBooks {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+    String bookName = scanner.nextLine();
+    String input = scanner.nextLine();
+
+    int countBook = 0;
+    while (!input.equals("No More Books")){
+
+        if (bookName.equals(input)){
+            break;
+        }
+        countBook++;
+        input = scanner.nextLine();
+    }
+        if (input.equals("No More Books")){
+
+            System.out.println("The book you search is not here!");
+            System.out.printf("You checked %d books.", countBook);
+        }else {
+
+            System.out.printf("You checked %d books and found it.", countBook);
+
+
+        }
+
+
+
+
+    }
+}
