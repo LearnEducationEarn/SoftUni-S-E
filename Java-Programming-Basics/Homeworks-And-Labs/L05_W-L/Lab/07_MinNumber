@@ -1,0 +1,21 @@
+
+package L05_WhileLoop_Lab;
+import java.util.Scanner;
+public class L07_MinNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+    String input = scanner.nextLine();
+    double minNumber = Integer.MAX_VALUE;
+    while (!input.equals("Stop")){
+        int currentNumber = Integer.parseInt(input);
+
+        if (currentNumber < minNumber){
+            minNumber = currentNumber;
+        }
+        input = scanner.nextLine();
+    }
+
+        System.out.printf("%.0f", minNumber);
+    }
+}
