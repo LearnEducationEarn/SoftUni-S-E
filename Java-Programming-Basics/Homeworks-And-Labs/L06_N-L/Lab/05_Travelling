@@ -1,34 +1,27 @@
-
-package L06_NestedLoops_Lab;
+package NestedLoops_Lab_06;
 
 import java.util.Scanner;
 
 public class P05_Travelling {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         String input = scanner.nextLine();
 
         while (!input.equals("End")) {
-        
-        double neededMoney = Double.parseDouble(scanner.nextLine());
-      
-        double savedMoney = Double.parseDouble(scanner.nextLine());
-
-       
-            while (savedMoney < neededMoney) {
+            double needMoney = Double.parseDouble(scanner.nextLine());
+            double savedMoney = 0;
+            while (savedMoney < needMoney) {
 
                 double sumForSave = Double.parseDouble(scanner.nextLine());
                 savedMoney += sumForSave;
-
             }
-            System.out.println("Going to" + input + "!");
+            System.out.println("Going to " + input + "!");
+
+
+            input = scanner.nextLine();
 
         }
 
 
-
-
-//да се пиогледне
     }
 }
