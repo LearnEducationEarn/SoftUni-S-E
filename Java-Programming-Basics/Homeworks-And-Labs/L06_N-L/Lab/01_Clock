@@ -1,0 +1,27 @@
+
+
+package L06_NestedLoops_Lab;
+
+import java.util.Scanner;
+
+public class P01_Clock {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        for (int hour = 0; hour <= 23 ; hour++) {
+           
+            for (int minute = 0; minute <= 59 ; minute++) {
+
+                if (minute < 10){
+                    System.out.printf("%d:0%d%n", hour, minute);
+                }else {
+                    System.out.println(hour + ":" +  minute);
+                }
+            }
+        }
+
+
+
+    }
+}
