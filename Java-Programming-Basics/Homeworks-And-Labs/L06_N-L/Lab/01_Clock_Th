@@ -1,0 +1,30 @@
+
+package L06_NestedLoops_Lab;
+
+import java.util.Scanner;
+
+public class P01_Clock_Th {
+    public static void main(String[] args) throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+       
+        for (int hour = 0; hour <= 23; hour++) {
+           
+            for (int minute = 0; minute <= 59; minute++) {
+               
+                if (minute < 10) {
+                    System.out.printf("%d:0%d%n", hour, minute);
+                } else {
+                    System.out.println(hour + ":" + minute);
+                }
+                Thread.sleep(1000);
+                if (hour == 23 && minute == 59) {
+                    hour = 0;
+                    minute = 0;
+                }
+
+
+            }
+        }
+
+    }
+}
