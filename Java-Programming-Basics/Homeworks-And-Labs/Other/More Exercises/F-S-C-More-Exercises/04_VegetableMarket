@@ -1,0 +1,31 @@
+
+package FirstStepsInCoding_MoreExercises;
+import java.util.Scanner;
+public class P04_VegetableMarket {
+    public static void main (String[] args){
+
+        Scanner scanner = new Scanner(System.in);
+
+        double priceForKilogramVegetables = Double.parseDouble(scanner.nextLine());
+        double priceForKilogramFruits = Double.parseDouble(scanner.nextLine());
+        double totalKilogramsPerVegetables = Double.parseDouble(scanner.nextLine());
+        double totalKilogramsPerFruits = Double.parseDouble(scanner.nextLine());
+
+
+
+        double totalVegetables = priceForKilogramVegetables * totalKilogramsPerVegetables;
+        double totalFruits = priceForKilogramFruits * totalKilogramsPerFruits;
+        double totalLeva = totalFruits + totalVegetables ;
+        double totalEur = totalLeva / 1.94 ;
+
+
+        System.out.printf("%.2f", totalEur);
+
+
+
+
+
+
+
+    }
+}
