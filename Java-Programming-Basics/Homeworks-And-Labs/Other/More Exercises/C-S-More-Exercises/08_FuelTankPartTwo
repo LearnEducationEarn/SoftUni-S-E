@@ -1,0 +1,55 @@
+
+package L02_ConditionalStatementsMoreExercises;
+
+import java.util.Scanner;
+
+public class P08_FuelTankPartTwo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String typeFuel = scanner.nextLine();
+        double quantityFuel = Double.parseDouble(scanner.nextLine());
+        String clubCard = scanner.nextLine();
+
+        double priceForGasoline = quantityFuel * 2.22;
+        double priceForDiesel = quantityFuel * 2.33;
+        double priceForGas = quantityFuel * 0.93;
+
+
+        if ("Yes".equalsIgnoreCase(clubCard)) {
+            if ("Gasoline".equalsIgnoreCase(typeFuel)) {
+                priceForGasoline = quantityFuel * (2.22 - 0.18);
+            } else if ("Diesel".equalsIgnoreCase(typeFuel)) {
+                priceForDiesel = quantityFuel * (2.33 - 0.12);
+            } else if ("Gas".equalsIgnoreCase(typeFuel)) {
+                priceForGas = quantityFuel * (0.93 - 0.08);
+
+            }
+        }
+        if (quantityFuel >= 20 && quantityFuel <= 25) {  
+            if ("Gasoline".equalsIgnoreCase(typeFuel)) {
+                priceForGasoline = priceForGasoline - priceForGasoline * 0.08;
+            } else if ("Diesel".equalsIgnoreCase(typeFuel)) {
+                priceForDiesel = priceForDiesel - priceForDiesel * 0.08;
+            } else if ("Gas".equalsIgnoreCase(typeFuel)) {
+                priceForGas = priceForGas - priceForGas * 0.08;
+            }
+        } else if (quantityFuel > 25){    
+            if ("Gasoline".equalsIgnoreCase(typeFuel)) {
+                priceForGasoline = priceForGasoline - priceForGasoline * 0.10;
+            } else if ("Diesel".equalsIgnoreCase(typeFuel)) {
+                priceForDiesel = priceForDiesel - priceForDiesel * 0.10;
+            } else if ("Gas".equalsIgnoreCase(typeFuel)) {
+                priceForGas = priceForGas - priceForGas * 0.10;
+            }
+        }
+        if ("Gasoline".equalsIgnoreCase(typeFuel)) {
+            System.out.printf("%.2f lv.", priceForGasoline);
+        } else if ("Diesel".equalsIgnoreCase(typeFuel)) {
+            System.out.printf("%.2f lv.", priceForDiesel);
+        } else {
+            System.out.printf("%.2f lv.", priceForGas);
+        }
+
+    }
+}
