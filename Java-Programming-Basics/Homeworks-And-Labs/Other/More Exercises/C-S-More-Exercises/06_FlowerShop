@@ -1,0 +1,38 @@
+
+package L02_ConditionalStatementsMoreExercises;
+import java.util.Scanner;
+public class P06_FlowerShop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countMagnolias = Integer.parseInt(scanner.nextLine());     
+        int countHyacinths = Integer.parseInt(scanner.nextLine());      
+        int countRoses = Integer.parseInt(scanner.nextLine());          
+        int countCactus = Integer.parseInt(scanner.nextLine());         
+        double priceForGift = Double.parseDouble(scanner.nextLine());  
+
+
+
+        double magnoliasPrice = countMagnolias * 3.25 + countHyacinths * 4 + countRoses * 3.50 + countCactus * 8;
+
+
+
+        double tax = magnoliasPrice * 0.05;
+        double total = magnoliasPrice - tax;
+
+        if (total < priceForGift) {
+            double neededMoney = Math.abs(priceForGift - total);
+            System.out.printf("She will have to borrow %.0f leva.",Math.ceil(neededMoney));
+        }else {
+          
+                double leftMoney = Math.abs(total - priceForGift);
+                System.out.printf("She is left with %.0f leva.",Math.floor(leftMoney));
+        }
+
+
+
+
+
+
+    }
+}
