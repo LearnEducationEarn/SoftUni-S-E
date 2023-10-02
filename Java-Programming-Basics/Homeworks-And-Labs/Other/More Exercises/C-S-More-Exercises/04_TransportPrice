@@ -1,0 +1,47 @@
+
+package L02_ConditionalStatementsMoreExercises;
+
+import java.util.Scanner;
+
+public class P04_TransportPrice {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countKilometers = Integer.parseInt(scanner.nextLine());
+        String input = scanner.nextLine();
+
+        double price = 0;
+
+        switch (input) {
+
+            case "day":
+
+
+                if (countKilometers < 20) {
+                    price = 0.70 + (countKilometers * 0.79);
+                } else if (countKilometers < 100) {
+                    price = countKilometers * 0.09;
+                } else  {
+                    price = countKilometers * 0.06;
+                } 
+                    
+                
+                break;
+            case "night":
+
+                if (countKilometers < 20) {
+                    price = 0.70 + (countKilometers * 0.90);
+                } else if (countKilometers < 100) {
+                    price = countKilometers * 0.09;
+                } else  {
+                    price = countKilometers * 0.06;
+                }
+                break;
+
+
+        }
+        System.out.printf("%.2f", price);
+
+
+    }
+}
