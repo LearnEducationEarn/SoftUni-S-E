@@ -1,0 +1,39 @@
+
+package L02_ConditionalStatementsMoreExercises;
+
+import java.util.Scanner;
+
+public class P05_Pets {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+    int countDays = Integer.parseInt(scanner.nextLine());  
+    int foodLeftBehindInKilograms = Integer.parseInt(scanner.nextLine()); 
+    double foodPerDayForDog = Double.parseDouble(scanner.nextLine());
+    double foodPerDayForCat = Double.parseDouble(scanner.nextLine()); 
+    double foodPerDayForTurtle = Double.parseDouble(scanner.nextLine()); 
+
+
+        double foodDog = countDays * foodPerDayForDog;  
+        double foodCat = countDays * foodPerDayForCat; 
+        double foodTurtle = (countDays * foodPerDayForTurtle) / 1000; 
+        double total = foodDog + foodCat + foodTurtle ;  
+
+
+        if (total < foodLeftBehindInKilograms){
+            double diff = Math.abs(total - foodLeftBehindInKilograms);
+            System.out.printf("%.0f kilos of food left.", Math.floor(diff));
+        }else {
+            double needed = Math.abs(foodLeftBehindInKilograms - total);
+            System.out.printf("%.0f more kilos of food are needed.", Math.ceil(needed));
+
+
+
+        }
+
+
+
+
+
+    }
+}
