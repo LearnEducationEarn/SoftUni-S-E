@@ -1,0 +1,33 @@
+
+
+package L02_ConditionalStatementsMoreExercises;
+import java.util.Scanner;
+public class P02_SleepyTomCat {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+    int countRestDays = Integer.parseInt(scanner.nextLine());
+
+
+    double countRestDaysInMinutes = countRestDays * 127;
+    double countWorkingDaysInMinutes = (365 - countRestDays) * 63;
+
+    double totalPlayingTimePerYear = countRestDaysInMinutes + countWorkingDaysInMinutes;
+
+        double totalTimeInHour = Math.abs(30000 - totalPlayingTimePerYear) / 60;
+        double totalTimeInMinutes = Math.abs(30000 - totalPlayingTimePerYear) % 60;
+    if (30000 > totalPlayingTimePerYear){
+
+        System.out.println("Tom sleeps well");
+        System.out.printf("%.0f hours and %.0f minutes less for play", Math.floor(totalTimeInHour), Math.floor(totalTimeInMinutes));
+    }else {
+        System.out.println("Tom will run away");
+        System.out.printf("%.0f hours and %.0f minutes more for play", Math.floor(totalTimeInHour), Math.floor(totalTimeInMinutes));
+    }
+
+
+
+
+
+    }
+}
