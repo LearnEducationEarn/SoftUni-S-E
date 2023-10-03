@@ -1,0 +1,46 @@
+
+package L03_ConditionalStatementsAdvancedMoreExercises;
+import java.util.Scanner;
+public class P01_MatchTickets {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        String ticketType = scanner.nextLine();
+        int countPeopleInGroup = Integer.parseInt(scanner.nextLine());
+
+        double moneyForAll = 0;
+        double ticketsPrice = 0;
+        if (countPeopleInGroup >= 1 && countPeopleInGroup <= 4){
+           moneyForAll = budget - budget * 0.75;  
+        }else if (countPeopleInGroup <= 9){
+            moneyForAll = budget - budget * 0.60;
+
+        }else if (countPeopleInGroup <= 24){
+            moneyForAll = budget - budget * 0.50;
+        }else if (countPeopleInGroup <= 49){
+            moneyForAll = budget - budget * 0.40; 
+        }else {
+            moneyForAll = budget - budget * 0.25;
+        }
+
+    if ("VIP".equalsIgnoreCase(ticketType)){
+        ticketsPrice = countPeopleInGroup * 499.99;
+    }else if ("Normal".equalsIgnoreCase(ticketType)){
+        ticketsPrice = countPeopleInGroup * 249.99;
+    }
+
+        if (moneyForAll >= ticketsPrice){      
+            double moneyLeft = Math.abs(moneyForAll - ticketsPrice);
+            System.out.printf("Yes! You have %.2f leva left.", moneyLeft);
+        }else {
+            double neededSum = Math.abs(ticketsPrice - moneyForAll);
+            System.out.printf("Not enough money! You need %.2f leva.", neededSum);
+        }
+
+
+
+
+
+    }
+}
