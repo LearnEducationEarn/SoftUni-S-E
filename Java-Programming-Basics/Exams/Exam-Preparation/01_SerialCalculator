@@ -1,1 +1,32 @@
 
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class P01_SerialCalculator {
+    public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            
+            String serialName = scanner.nextLine(); 
+            int countSeasons = Integer.parseInt(scanner.nextLine()); 
+            int countEpisodes = Integer.parseInt(scanner.nextLine()); 
+            double timePerEpisode = Double.parseDouble(scanner.nextLine()); 
+            double timeForAds = 0.2 * timePerEpisode;  
+
+           
+            double totalTimeForEpisode = timePerEpisode + timeForAds;
+            
+            double additionalTime = countSeasons * 10;
+
+            double totalTime = (countSeasons * countEpisodes * totalTimeForEpisode) + additionalTime;
+
+
+            System.out.printf("Total time needed to watch the %s series is %.0f minutes.", serialName, Math.floor(totalTime));
+
+
+
+        }
+    }
+
+
+
