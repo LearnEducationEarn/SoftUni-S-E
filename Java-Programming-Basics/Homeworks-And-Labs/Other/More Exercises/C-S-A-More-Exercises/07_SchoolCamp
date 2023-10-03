@@ -1,0 +1,84 @@
+
+package L03_ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class P07_SchoolCamp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String season = scanner.nextLine();   
+        String groupType = scanner.nextLine(); 
+        int countStudents = Integer.parseInt(scanner.nextLine()); 
+        int countDays = Integer.parseInt(scanner.nextLine()); 
+
+        double dayInHotel = 0;
+        String typeSport = ""; 
+        switch (season) {
+            case "Winter":
+                if ("boys".equalsIgnoreCase(groupType) || ("girls".equalsIgnoreCase(groupType))) {
+                    dayInHotel = countDays * countStudents * 9.60;
+
+                } else {
+                    dayInHotel = countDays * countStudents * 10;
+                }
+                break;
+            case "Spring":
+                if ("boys".equalsIgnoreCase(groupType) || "girls".equalsIgnoreCase(groupType)) {
+                    dayInHotel = countDays * countStudents * 7.20;
+
+                } else {
+                    dayInHotel = countDays * countStudents * 9.50;
+                }
+                break;
+            case "Summer":
+                if ("boys".equalsIgnoreCase(groupType) || "girls".equalsIgnoreCase(groupType)) {
+                    dayInHotel = countDays * countStudents * 15;
+                } else {
+                    dayInHotel = countDays * countStudents * 20;
+                }
+                break;
+        }
+        if (countStudents >= 10 && countStudents < 20) {
+            dayInHotel = dayInHotel - dayInHotel * 0.05;
+        } else if (countStudents >= 20 && countStudents < 50) {
+            dayInHotel = dayInHotel - dayInHotel * 0.15;
+        } else if (countStudents >= 50){
+            dayInHotel = dayInHotel - dayInHotel * 0.50;
+        }
+
+        if ("Winter".equalsIgnoreCase(season)) {
+            if ("boys".equalsIgnoreCase(groupType)) {
+                typeSport = "Judo";
+            } else if ("girls".equalsIgnoreCase(groupType)) {
+                typeSport = "Gymnastics";
+            } else {
+                typeSport = "Ski";
+            }
+
+
+        } else if ("Spring".equalsIgnoreCase(season)) {
+                if ("boys".equalsIgnoreCase(groupType)) {
+                    typeSport = "Tennis";
+                }else if ("girls".equalsIgnoreCase(groupType)){
+
+                    typeSport = "Athletics";
+                }else {
+                    typeSport = "Cycling";
+                }
+    }else {
+            if ("boys".equalsIgnoreCase(groupType)) {
+                typeSport = "Football";
+            }else if ("girls".equalsIgnoreCase(groupType)){
+
+                typeSport = "Volleyball";
+            }else {
+                typeSport = "Swimming";
+            }
+}
+        System.out.printf("%s %.2f lv.", typeSport, dayInHotel);
+
+
+
+    }
+}
