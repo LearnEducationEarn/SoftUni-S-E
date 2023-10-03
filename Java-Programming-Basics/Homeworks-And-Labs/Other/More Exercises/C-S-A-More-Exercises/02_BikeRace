@@ -1,0 +1,42 @@
+
+package L03_ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class P02_BikeRace {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countJuniorsCyclists = Integer.parseInt(scanner.nextLine());
+        int countSeniorsCyclists = Integer.parseInt(scanner.nextLine());
+        String road = scanner.nextLine();
+        double priceJuniors = 0;
+        double priceSeniors = 0;
+
+
+        if ("trail".equalsIgnoreCase(road)) {
+            priceJuniors = countJuniorsCyclists * 5.50;
+            priceSeniors = countSeniorsCyclists * 7;
+        } else if ("cross-country".equalsIgnoreCase(road)) {
+            priceJuniors = countJuniorsCyclists * 8;
+            priceSeniors = countSeniorsCyclists * 9.50;
+        } else if ("downhill".equalsIgnoreCase(road)) {
+            priceJuniors = countJuniorsCyclists * 12.25;
+            priceSeniors = countSeniorsCyclists * 13.75;
+        } else {
+            priceJuniors = countJuniorsCyclists * 20;
+            priceSeniors = countSeniorsCyclists * 21.50;
+        }
+        double peopleSum = Math.abs(priceJuniors + priceSeniors);
+        double expenses = peopleSum * 0.05;
+        peopleSum = peopleSum - expenses;
+        double totalCyclists = countJuniorsCyclists + countSeniorsCyclists;
+        if (totalCyclists >= 50) {
+            expenses = peopleSum * 0.25;
+            double total = Math.abs(peopleSum - expenses);
+            System.out.printf("%.2f", total);
+        } else {
+            System.out.printf("%.2f", peopleSum);
+        } 
+    }
+}
