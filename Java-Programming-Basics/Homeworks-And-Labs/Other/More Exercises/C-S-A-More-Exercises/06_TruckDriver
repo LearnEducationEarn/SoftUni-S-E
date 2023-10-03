@@ -1,0 +1,49 @@
+
+package L03_ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class P06_TruckDriver {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String season = scanner.nextLine();   
+        double kilometersPerMonth = Double.parseDouble(scanner.nextLine()); 
+
+        double totalTake = 0;
+        
+        
+        if ("Spring".equalsIgnoreCase(season) || "Autumn".equalsIgnoreCase(season)){
+            if (kilometersPerMonth <= 5000) {
+                totalTake = kilometersPerMonth * 0.75;
+            } else if (kilometersPerMonth <= 10000) {
+                totalTake = kilometersPerMonth * 0.95;
+            } else {
+                totalTake = kilometersPerMonth * 1.45;
+            }
+        }else if ("Summer".equalsIgnoreCase(season)){
+            if (kilometersPerMonth <= 5000) {
+                totalTake = kilometersPerMonth * 0.90;
+            } else if (kilometersPerMonth <= 10000) {
+                totalTake = kilometersPerMonth * 1.10;
+            } else {
+                totalTake = kilometersPerMonth * 1.45;
+            }
+        }else {
+            if (kilometersPerMonth <= 5000) {
+                totalTake = kilometersPerMonth * 1.05;
+            } else if (kilometersPerMonth <= 10000) {
+                totalTake = kilometersPerMonth * 1.25;
+            } else {
+                totalTake = kilometersPerMonth * 1.45;
+            }
+        }
+        totalTake = totalTake * 4;
+        double totalWithoutTax = totalTake * 0.10;
+        double total = totalTake - totalWithoutTax;
+        System.out.printf("%.2f", total);
+        
+        
+        
+    }
+}
