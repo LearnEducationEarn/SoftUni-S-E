@@ -1,0 +1,52 @@
+
+package L03_ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class P04_CarToGo_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        String season = scanner.nextLine();
+        String carType = "";
+        String typeClass = "";
+        if ("Summer".equalsIgnoreCase(season)){
+            if (budget <= 100) {
+                budget = budget * 0.35;
+                carType = "Cabrio";
+                typeClass = "Economy class";
+            } else if (budget > 100 && budget <= 500) {
+                budget = budget * 0.45;
+                carType = "Cabrio";
+                typeClass = "Compact class";
+            } else {
+                budget = budget * 0.90;
+                carType = "Jeep";
+                typeClass = "Luxury class";
+            }
+        }else if ("Winter".equalsIgnoreCase(season)){
+            if (budget <= 100) {
+                budget = budget * 0.65;
+                carType = "Jeep";
+                typeClass = "Economy class";
+            } else if (budget > 100 && budget <= 500) {
+                budget = budget * 0.80;
+                carType = "Jeep";
+                typeClass = "Compact class";
+            } else {
+                budget = budget * 0.90;
+                carType = "Jeep";
+                typeClass = "Luxury class";
+            }
+        }
+        System.out.printf("%s%n", typeClass);
+        System.out.printf("%s - %.2f", carType, budget);
+
+
+
+
+    }
+}
