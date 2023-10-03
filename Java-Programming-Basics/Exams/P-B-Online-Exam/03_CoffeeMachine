@@ -1,0 +1,58 @@
+
+package ProgrammingBasicsOnlineExam;
+import java.util.Scanner;
+public class P03_CoffeeMachine {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+        String text = scanner.nextLine();
+        int countCups = Integer.parseInt(scanner.nextLine());
+
+        double discountPerUnit = 0;
+        
+
+       switch (input){
+           case "Espresso":
+               if ("Without".equalsIgnoreCase(text)){
+                discountPerUnit = countCups - countCups * 0.90;
+               discountPerUnit = discountPerUnit * 0.35;
+
+               }else if ("Normal".equalsIgnoreCase(text)){
+                   discountPerUnit = countCups * 1.0;
+               }else {
+                   discountPerUnit = countCups * 1.20;
+               }
+               if (countCups > 5){
+                   discountPerUnit = discountPerUnit * 0.25;
+               }
+               break;
+           case "Cappuccino":
+               if ("Without".equalsIgnoreCase(text)){
+                   discountPerUnit = countCups * 1.0;
+                   discountPerUnit = discountPerUnit * 0.35;
+               }else if ("Normal".equalsIgnoreCase(text)){
+                   discountPerUnit = countCups * 1.20;
+               }else {
+                   discountPerUnit = countCups * 1.60;
+               }
+               break;
+           case "Tea":
+               if ("Without".equalsIgnoreCase(text)){
+                   discountPerUnit = countCups * 0.50;
+                   discountPerUnit = discountPerUnit * 0.35;
+               }else if ("Normal".equalsIgnoreCase(text)){
+                   discountPerUnit = countCups * 0.60;
+               }else {
+                   discountPerUnit = countCups * 0.70;
+               }
+               break;
+       }
+        if (discountPerUnit > 15){
+            discountPerUnit = discountPerUnit * 0.20;
+        }
+        System.out.printf("You bought %d cups of %s for %.2f lv.", countCups, input, discountPerUnit);
+
+
+    }
+}
