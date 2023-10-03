@@ -1,0 +1,29 @@
+
+package ProgrammingBasicsOnlineExam;
+
+import java.util.Scanner;
+
+public class P01_PoolDay {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int countPeople = Integer.parseInt(scanner.nextLine());
+        double entryTax = Double.parseDouble(scanner.nextLine());
+        double priceForSunBed = Double.parseDouble(scanner.nextLine());
+        double priceForUmbrella = Double.parseDouble(scanner.nextLine());
+
+        double taxForAll = countPeople * entryTax;
+        double sunBed = Math.ceil(countPeople * 0.75);
+        double priceSunbed = priceForSunBed * sunBed;
+        double umbrella = Math.ceil(countPeople * 0.50);
+        double priceUmbrella = priceForUmbrella * umbrella;
+
+        double total = taxForAll + priceSunbed + priceUmbrella;
+
+
+        System.out.printf("%.2f lv.", total);
+
+
+    }
+}
