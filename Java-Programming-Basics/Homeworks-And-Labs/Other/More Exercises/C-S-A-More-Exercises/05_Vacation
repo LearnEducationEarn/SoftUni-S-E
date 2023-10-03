@@ -1,0 +1,55 @@
+
+package L03_ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class P05_Vacation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        String season = scanner.nextLine();
+
+        String location = "";
+        String accommodationType = "";
+
+        switch (season){
+
+            case "Summer":
+                if (budget <= 1000) {
+                    budget = budget * 0.65;
+                    location = "Alaska";
+                    accommodationType = "Camp";
+                } else if (budget > 1000 && budget <= 3000) {
+                    budget = budget * 0.80;
+                    location = "Alaska";
+                    accommodationType = "Hut";
+                } else {
+                    budget = budget * 0.90;
+                    location = "Alaska";
+                    accommodationType = "Hotel";
+                }
+                break;
+            case "Winter":
+                if (budget <= 1000) {
+                    budget = budget * 0.45;
+                    location = "Morocco";
+                    accommodationType = "Camp";
+
+                } else if (budget > 1000 && budget <= 3000) {
+                    budget = budget * 0.60;
+                    location = "Morocco";
+                    accommodationType = "Hut";
+                } else {
+                    budget = budget * 0.90;
+                    location = "Morocco";
+                    accommodationType = "Hotel";
+                }
+                break;
+        }
+
+        System.out.printf("%s - %s - %.2f", location, accommodationType, budget);
+
+
+    }
+}
