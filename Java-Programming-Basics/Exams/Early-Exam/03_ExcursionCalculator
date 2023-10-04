@@ -1,0 +1,60 @@
+
+package Early_Exam;
+
+import java.util.Scanner;
+
+public class P03_ExcursionCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countPeople = Integer.parseInt(scanner.nextLine());
+        String season = scanner.nextLine();
+        double totalPrice = 0;
+        double discount = 0;
+        switch (season){
+            case "spring":
+                if (countPeople <= 5){
+                   totalPrice = countPeople *  50;
+                }else {
+                    totalPrice = countPeople * 48;
+                }
+                break;
+
+            case "summer":
+                if (countPeople <= 5){
+                   totalPrice = countPeople * 48.50;
+                    discount = totalPrice - totalPrice * 0.15;
+                }else {
+                 totalPrice = countPeople * 45;
+                    discount = totalPrice - totalPrice * 0.15;
+                }
+                break;
+            case "autumn":
+                if (countPeople <= 5){
+                    totalPrice = countPeople * 60;
+                }else {
+                    totalPrice = countPeople * 49.50;
+                }
+                break;
+            case "winter":
+                if (countPeople <= 5){
+                    totalPrice = countPeople * 86;
+                    discount = totalPrice + totalPrice * 0.08;
+                }else {
+                    totalPrice = countPeople * 85;
+                    discount = totalPrice + totalPrice * 0.08;
+                }
+                break;
+
+        }if (season.equals("summer") || season.equals("winter")){
+
+
+
+        System.out.printf("%.2f leva.", discount);
+
+    }else {
+     System.out.printf("%.2f leva.",totalPrice);
+
+    }
+}
+}
