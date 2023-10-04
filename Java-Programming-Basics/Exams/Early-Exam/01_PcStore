@@ -1,0 +1,37 @@
+
+package Early_Exam;
+
+import java.util.Scanner;
+
+public class P01_PcStore {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double dollarPriceForProcessor = Double.parseDouble(scanner.nextLine());
+        double dollarPriceForVideoCard = Double.parseDouble(scanner.nextLine());
+        double dollarPriceForRam = Double.parseDouble(scanner.nextLine());
+        int countRam = Integer.parseInt(scanner.nextLine());
+        double percentDiscount = Double.parseDouble(scanner.nextLine());
+        double bgn = 1.57;
+
+
+        double priceForProcessor = dollarPriceForProcessor * bgn;
+        double priceForVideoCard = dollarPriceForVideoCard * bgn;
+
+        double priceForRamP = dollarPriceForRam * bgn;
+        double totalForRam = priceForRamP * countRam;
+        double priceForProcessorDiscount = priceForProcessor - priceForProcessor * percentDiscount;
+        double priceForVideoDiscount = priceForVideoCard- priceForVideoCard * percentDiscount;
+        double total = priceForProcessorDiscount + priceForVideoDiscount + totalForRam;
+
+        System.out.printf("Money needed - %.2f leva.", total);
+
+
+
+
+
+
+
+
+    }
+}
