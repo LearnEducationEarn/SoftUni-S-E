@@ -1,0 +1,31 @@
+
+package Early_Exam;
+
+import java.util.Scanner;
+
+public class P02_BraceletStand {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double pocketMoneyPerDay = Double.parseDouble(scanner.nextLine());
+        double earnMoneyPerDay = Double.parseDouble(scanner.nextLine());
+        double expensesAllPeriod = Double.parseDouble(scanner.nextLine());
+        double priceForGift = Double.parseDouble(scanner.nextLine());
+
+
+        double savedMoney = 5 * pocketMoneyPerDay;
+        double earnMoney = 5 * earnMoneyPerDay;
+
+        double totalSavedMoney = savedMoney + earnMoney;
+        double expensesOut = totalSavedMoney - expensesAllPeriod;
+
+        if (expensesOut > priceForGift){
+            System.out.printf("Profit: %.2f BGN, the gift has been purchased.", expensesOut);
+        }else if (expensesOut < priceForGift) {
+            double needMoney = priceForGift - expensesOut;
+            System.out.printf("Insufficient money: %.2f BGN.", needMoney);
+        }
+
+
+    }
+}
