@@ -1,0 +1,50 @@
+
+package Exam;
+
+import java.util.Scanner;
+
+public class P05_ChristmasGifts {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+
+
+        int numberOfAdults = 0;
+        int numberOfKids = 0;
+        int moneyForToys = 0;
+        int moneyForSweaters = 0;
+       
+
+
+        boolean isValid = false;
+        String input = scanner.nextLine();
+        while (!"Christmas".equalsIgnoreCase(input)) {
+            int currentInput = Integer.parseInt(input);
+            if (currentInput <= 16) {
+                moneyForToys += 5;
+
+                numberOfKids++;
+
+            } else {
+
+                moneyForSweaters += 15;
+                numberOfAdults++;
+            }
+            if ("Christmas".equalsIgnoreCase(input)) {
+                isValid = true;
+                break;
+
+            }
+            input = scanner.nextLine();
+        }
+
+        
+        System.out.println("Number of adults: " + numberOfAdults);
+        System.out.println("Number of kids: " + numberOfKids);
+        System.out.println("Money for toys: " + moneyForToys);
+        System.out.println("Money for sweaters: " + moneyForSweaters);
+
+
+    }
+}
