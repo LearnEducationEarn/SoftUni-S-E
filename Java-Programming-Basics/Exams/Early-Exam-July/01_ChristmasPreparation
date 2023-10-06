@@ -1,0 +1,30 @@
+
+package PreExam;
+
+import java.util.Scanner;
+
+public class P01_ChristmasPreparation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int countRollsPaper = Integer.parseInt(scanner.nextLine());
+        int countRollsCloth = Integer.parseInt(scanner.nextLine());
+        double littersGlue = Double.parseDouble(scanner.nextLine());
+        int percentDiscount = Integer.parseInt(scanner.nextLine());
+
+
+
+        double priceForRollsPaper = countRollsPaper * 5.80;
+        double priceForCloth = countRollsCloth * 7.20;
+        double priceForGlue = littersGlue * 1.20;
+
+
+        double allMaterials = priceForRollsPaper + priceForCloth + priceForGlue;
+        double disc = allMaterials * ((double) percentDiscount / 100);   
+        double sum = allMaterials - disc;
+        System.out.printf("%.3f", sum);
+
+    }
+}
+
