@@ -17,9 +17,9 @@ public class P06_SumAndProduct {
 
                     int sum = a + b + c + d;
                     int multiplication = a * b * c * d;
-                  //  int lastDigit = n %10;
+                  //  int lastDigit = n % 10;
                     if (sum == multiplication && n % 10 == 5 ){
-                        count +=1;
+                        count += 1;
                         if (count == 1) {
                             System.out.printf("%d%d%d%d%n", a, b, c, d);
                             isValid = true;
