@@ -1,0 +1,49 @@
+
+package PreExam;
+
+import java.util.Scanner;
+
+public class P02_MaideenParty {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        double priceForParty = Double.parseDouble(scanner.nextLine());
+        int countMassages = Integer.parseInt(scanner.nextLine());
+        int countWaxyRoses = Integer.parseInt(scanner.nextLine());
+        int keyHolder = Integer.parseInt(scanner.nextLine());
+        int countCaricature = Integer.parseInt(scanner.nextLine());
+        int countLuckSurprise = Integer.parseInt(scanner.nextLine());
+
+
+        double totalCountMassages = countMassages * 0.60;
+        double totalCountWaxyRoses = countWaxyRoses * 7.20;
+        double totalKeyHolder = keyHolder * 3.60;
+        double totalCountCaricature = countCaricature * 18.20;
+        double totalCountLuckSurprise = countLuckSurprise * 22;
+
+        double total = totalCountMassages + totalCountWaxyRoses + totalKeyHolder + totalCountCaricature + totalCountLuckSurprise;
+
+        double countAccessories = countMassages + countWaxyRoses + keyHolder + countCaricature + countLuckSurprise;
+
+
+        if (countAccessories > 25) {
+            double totalPrice = total * 0.35;
+            total = total - totalPrice;
+
+        }
+        double expenses = total * 0.10;
+        double finalSum = total - expenses;
+
+        if (finalSum >= priceForParty) {
+            double totalSum = Math.abs(finalSum - priceForParty);
+
+            System.out.printf("Yes! %.2f lv left.", totalSum);
+        } else {
+            double neededMoney = Math.abs(priceForParty - finalSum);
+            System.out.printf("Not enough money! %.2f lv needed.", neededMoney);
+        }
+
+    }
+}
+
