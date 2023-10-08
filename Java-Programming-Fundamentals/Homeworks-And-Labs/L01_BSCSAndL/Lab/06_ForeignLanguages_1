@@ -1,0 +1,29 @@
+
+package L01_BasicSyntaxConditionalStatementsAndLoops;
+
+import java.util.Scanner;
+
+public class P06_ForeignLanguages_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String country = scanner.nextLine();
+
+
+        if ("USA".equalsIgnoreCase(country) || "England".equalsIgnoreCase(country)) {
+
+            System.out.println("English");
+        } else if ("Spain".equalsIgnoreCase(country)
+                    || "Argentina".equalsIgnoreCase(country) 
+                    || "Mexico".equalsIgnoreCase(country)) {
+           
+            System.out.println("Spanish");
+
+        } else {
+            System.out.println("unknown");
+
+        }
+
+
+    }
+}
