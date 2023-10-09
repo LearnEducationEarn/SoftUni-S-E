@@ -1,0 +1,26 @@
+
+package L01_BasicSyntaxConditionalStatementsAndLoops;
+
+import java.util.Scanner;
+
+public class P12_EvenNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        boolean isEvenFound = false;
+
+        while (!isEvenFound) {
+            int currentNumber = Integer.parseInt(scanner.nextLine()); // Можем да ползваме "Math.abs" тук или...
+
+            if (currentNumber % 2 == 0) {
+                isEvenFound = true;
+                System.out.printf("The number is: %d", Math.abs(currentNumber)); // можем да ползваме "Math.abs" тук.
+            } else {
+                System.out.println("Please write an even number.");
+            }
+
+        }
+    }
+
+
+}
