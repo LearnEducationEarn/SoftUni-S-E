@@ -1,0 +1,74 @@
+
+package L01_BasicSyntaxConditionalStatementsAndLoopsExercise;
+
+import java.util.Scanner;
+
+public class P03_Vacation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int groupOfPeople = Integer.parseInt(scanner.nextLine());
+        String typeGroup = scanner.nextLine();
+        String dayOfWeek = scanner.nextLine();
+
+        double price = 0;
+
+        switch (typeGroup) {
+
+            case "Students":
+
+                if ("Friday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 8.45;
+                    price = price * groupOfPeople;
+
+                } else if ("Saturday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 9.80;
+                    price = price * groupOfPeople;
+                } else if ("Sunday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 10.46;
+                    price = price * groupOfPeople;
+                }
+                if (groupOfPeople >= 30){
+                    price = price- price * 0.15;
+                }
+                break;
+            case "Business":
+                if ("Friday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 10.90;
+                    price = price * groupOfPeople;
+
+                } else if ("Saturday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 15.60;
+                    price = price * groupOfPeople;
+                } else if ("Sunday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 16;
+                    price = price * groupOfPeople;
+                }
+                if (groupOfPeople >= 100){
+                    price = price - price * 0.10;      
+
+                }
+                break;
+            case "Regular":
+                if ("Friday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 15;
+                    price = price * groupOfPeople;
+
+                } else if ("Saturday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 20;
+                    price = price * groupOfPeople;
+                } else if ("Sunday".equalsIgnoreCase(dayOfWeek)) {
+                    price = 22.50;
+                    price = price * groupOfPeople;
+                }
+                if (groupOfPeople >= 10 && groupOfPeople <= 20){
+                    price = price - price * 0.05;
+                }
+                break;
+
+        }
+        System.out.printf("Total price: %.2f", price);
+
+    }
+
+}
