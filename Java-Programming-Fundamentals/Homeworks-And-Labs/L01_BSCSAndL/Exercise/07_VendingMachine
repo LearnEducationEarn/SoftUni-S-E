@@ -1,0 +1,77 @@
+
+package L01_BasicSyntaxConditionalStatementsAndLoopsExercise;
+
+import java.util.Scanner;
+
+public class P07_VendingMachine {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        
+        String input = scanner.nextLine();    
+        double sumCoins = 0;
+        while (!"Start".equals(input)) {
+            //input = "0.50"
+
+            double coin = Double.parseDouble(input);     
+
+            if (coin == 0.1 || coin == 0.2 || coin == 0.5 || coin == 1 || coin == 2) {
+                
+
+                sumCoins += coin;
+
+
+            } else {
+              
+                System.out.printf("Cannot accept %.2f%n", coin);
+
+
+            }
+
+
+            input = scanner.nextLine();
+        }
+        
+        String product = scanner.nextLine();  //"Nuts", "Water", "Crisps", "Soda", "Coke"
+        while (!"End".equals(product)) {
+            
+
+            switch (product) {
+                case "Nuts":
+                   
+                    if (sumCoins >= 2) {
+                        
+                        System.out.println("Purchased Nuts");
+                        sumCoins -= 2;
+                    } else {
+                        
+                        System.out.println("Sorry, not enough money");
+                    }
+                    break;
+
+                case "Water":
+
+                    break;
+
+                case "Crisps":
+                    break;
+                case "Soda":
+                    break;
+                case "Coke":
+
+                default:
+                   
+                    System.out.println("Invalid product");
+                    break;
+
+
+            }
+
+
+        }
+
+        System.out.printf("Change: %.2f", sumCoins);
+
+    } 
+}
