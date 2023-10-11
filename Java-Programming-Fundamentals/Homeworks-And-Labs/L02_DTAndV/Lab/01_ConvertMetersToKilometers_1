@@ -1,0 +1,20 @@
+
+package L02_DataTypesAndVariables;
+
+import java.util.Scanner;
+
+public class P01_ConvertMetersToKilometers_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int distanceInMeters = Integer.parseInt(scanner.nextLine());
+
+        double kilometers = ((double) distanceInMeters / 1000);
+
+
+        System.out.printf("%.2f", kilometers);
+
+    }
+
+
+}
