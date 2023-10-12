@@ -1,1 +1,30 @@
 
+package L02_DataTypesAndVariables;
+
+import java.util.Scanner;
+
+public class P08_LowerOrUpper_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+        String lowerCase = input.toLowerCase();
+
+
+        if (input.equals(lowerCase)) {
+
+            System.out.println("lower-case");
+        } else {
+            System.out.println("upper-case");
+        }
+
+
+    }
+}
+
+
+
+
+
+
