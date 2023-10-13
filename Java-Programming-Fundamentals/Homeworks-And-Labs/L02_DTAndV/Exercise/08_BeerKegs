@@ -1,0 +1,32 @@
+
+package L02_DataTypesAndVariablesExercise;
+
+import java.util.Scanner;
+
+public class P08_BeerKegs {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countKegs = Integer.parseInt(scanner.nextLine());
+
+        
+        double maxVolume = Double.MIN_VALUE;  // максималния (най-големия) обем
+        String maxModel = ""; //модел на кега, който е с най-голям обем
+        for (int keg = 1; keg <= countKegs; keg++) {
+            String model = scanner.nextLine();
+            double radius = Double.parseDouble(scanner.nextLine());
+            int height = Integer.parseInt(scanner.nextLine());
+            double volume = Math.PI * Math.pow(radius, 2) * height; // Math.pow(radius, 2)-> radius * radius
+
+           
+
+            if (volume > maxVolume) {
+                maxVolume = volume;
+                maxModel = model;
+            }
+
+        }
+
+        System.out.println(maxModel);
+    }
+}
