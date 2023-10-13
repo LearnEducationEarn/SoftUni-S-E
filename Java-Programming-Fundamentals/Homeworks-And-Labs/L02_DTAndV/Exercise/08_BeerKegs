@@ -10,8 +10,8 @@ public class P08_BeerKegs {
         int countKegs = Integer.parseInt(scanner.nextLine());
 
         
-        double maxVolume = Double.MIN_VALUE;  // максималния (най-големия) обем
-        String maxModel = ""; //модел на кега, който е с най-голям обем
+        double maxVolume = Double.MIN_VALUE;  
+        String maxModel = ""; 
         for (int keg = 1; keg <= countKegs; keg++) {
             String model = scanner.nextLine();
             double radius = Double.parseDouble(scanner.nextLine());
