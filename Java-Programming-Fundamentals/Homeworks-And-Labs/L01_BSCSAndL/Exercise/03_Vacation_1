@@ -1,4 +1,3 @@
-
 package L01_BasicSyntaxConditionalStatementsAndLoopsExercise;
 
 import java.util.Scanner;
@@ -7,58 +6,48 @@ public class P03_Vacation_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int groupOfPeople = Integer.parseInt(scanner.nextLine());
-        String typeGroup = scanner.nextLine();
+        int countPeople = Integer.parseInt(scanner.nextLine());
+        String groupType = scanner.nextLine();
         String dayOfWeek = scanner.nextLine();
-
         double price = 0;
-        if ("Students".equalsIgnoreCase(typeGroup)) {
-            if ("Friday".equalsIgnoreCase(dayOfWeek)) {
+
+        if (groupType.equals("Students")){
+            if (dayOfWeek.equals("Friday")){
                 price = 8.45;
-                price = price * groupOfPeople;
-            } else if ("Saturday".equalsIgnoreCase(dayOfWeek)) {
+            } else if (dayOfWeek.equals("Saturday")){
                 price = 9.80;
-                price = price * groupOfPeople;
-            } else if ("Sunday".equalsIgnoreCase(dayOfWeek)) {
+            } else if (dayOfWeek.equals("Sunday")){
                 price = 10.46;
-                price = price * groupOfPeople;
             }
-            if (groupOfPeople >= 30) {
+            if (countPeople >= 30){
                 price = price - price * 0.15;
             }
-        } else if ("Business".equalsIgnoreCase(typeGroup)) {
-            if ("Friday".equalsIgnoreCase(dayOfWeek)) {
+
+        } else if (groupType.equals("Business")){
+            if (dayOfWeek.equals("Friday")){
                 price = 10.90;
-                price = price * groupOfPeople;
-            } else if ("Saturday".equalsIgnoreCase(dayOfWeek)) {
+            } else if (dayOfWeek.equals("Saturday")){
                 price = 15.60;
-                price = price * groupOfPeople;
-            } else if ("Sunday".equalsIgnoreCase(dayOfWeek)) {
+            } else if (dayOfWeek.equals("Sunday")){
                 price = 16;
-                price = price * groupOfPeople;
             }
-            if (groupOfPeople >= 100) {
-                price = price - price * 0.10;            
+            if (countPeople >= 100){
+                countPeople = countPeople - 10;
             }
-        } else if ("Regular".equalsIgnoreCase(typeGroup)) {
-            if ("Friday".equalsIgnoreCase(dayOfWeek)) {
+        } else if (groupType.equals("Regular")){
+            if (dayOfWeek.equals("Friday")){
                 price = 15;
-                price = price * groupOfPeople;
-            } else if ("Saturday".equalsIgnoreCase(dayOfWeek)) {
+            } else if (dayOfWeek.equals("Saturday")){
                 price = 20;
-                price = price * groupOfPeople;
-            } else if ("Sunday".equalsIgnoreCase(dayOfWeek)) {
+            } else if (dayOfWeek.equals("Sunday")){
                 price = 22.50;
-                price = price * groupOfPeople;
             }
-            if (groupOfPeople >= 10 && groupOfPeople <= 20) {
-                price = price - price * 0.05;
+            if (countPeople >= 10 && countPeople <= 20){
+                price = price * 0.95;
             }
+
         }
-
-
-        System.out.printf("Total price: %.2f", price);
-
-
+        double totalPrice = countPeople * price;
+        System.out.printf("Total price: %.2f", totalPrice);
     }
 }
