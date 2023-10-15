@@ -1,0 +1,29 @@
+
+
+package L03_Arrays_Exercise;
+
+import java.util.Scanner;
+
+public class P02_CommonElements {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        
+        String firstRow = scanner.nextLine(); //"Hey hello 2 4"
+        String secondRow = scanner.nextLine(); //"10 hey 4 hello"
+
+        String [] firstArray = firstRow.split(" "); // ["Hey", "hello", "2", "4"]
+        String [] secondArray = secondRow.split(" "); // ["10", "hey", "4", "hello"]
+
+        
+
+        for (String el2 : secondArray) { // ["10", "hey", "4", "hello"]
+            for (String el1 : firstArray) { // ["Hey", "hello", "2", "4"]
+                if (el2.equals(el1)) {
+                    System.out.print(el2 + " ");
+                }
+            }
+        }
+    }
+}
