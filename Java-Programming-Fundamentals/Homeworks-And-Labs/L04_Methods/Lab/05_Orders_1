@@ -1,2 +1,32 @@
 
 
+package L04_Methods_Lab;
+
+import java.util.Scanner;
+
+public class P05_Orders_1 {
+    public static void main (String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        String product = scanner.nextLine();
+        int quantity = Integer.parseInt(scanner.nextLine());
+        printPriceOfProduct(product, quantity);
+
+
+    }
+    public static void printPriceOfProduct (String product, double price){
+
+        if ("Coffee".equalsIgnoreCase(product)){
+            price *= 1.50;
+        } else if ("water".equalsIgnoreCase(product)){
+            price *= 1.00;
+        } else if ("coke".equalsIgnoreCase(product)){
+            price *= 1.40;
+        } else if ("snacks".equalsIgnoreCase(product)){
+            price *= 2.00;
+        }
+
+        System.out.printf("%.2f", price);
+
+    }
+}
