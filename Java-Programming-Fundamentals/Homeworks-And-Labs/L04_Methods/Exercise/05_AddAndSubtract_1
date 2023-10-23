@@ -1,0 +1,38 @@
+
+
+package L04_Methods_Exercise;
+
+import java.util.Scanner;
+
+public class P05_AddAndSubtract_1 {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+    int firstNumber = Integer.parseInt(scanner.nextLine());
+    int secondNumber = Integer.parseInt(scanner.nextLine());
+    int thirdNumber = Integer.parseInt(scanner.nextLine());
+
+    //(firstNumber + secondNumber) - thirdNumber
+
+        int sum = sum(firstNumber, secondNumber); //сумата на първите 2 числа: (firstNumber + secondNumber)
+        int diff = subtract(sum, thirdNumber);
+
+        System.out.println(diff);
+    }
+    //метод, който намира и връща сумата на две числа
+    public static int sum (int n1, int n2){
+
+        int sum = n1 + n2;
+
+        return sum;       //или направо: return n1 + n2;
+
+    }
+    //метод, който намира и връща разликата на две числа
+    public static int subtract (int n1, int n2){
+
+        return  n1 - n2;
+
+    }
+
+
+}
