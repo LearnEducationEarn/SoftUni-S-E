@@ -4,7 +4,7 @@ package L04_Methods_Exercise;
 
 import java.util.Scanner;
 
-public class P05_AddAndSubtract_1 {
+public class P05_AddAndSubtract {
     public static void main (String[] args){
         Scanner scanner = new Scanner(System.in);
 
