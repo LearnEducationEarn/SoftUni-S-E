@@ -1,1 +1,60 @@
 
+
+package L04_Methods_Lab;
+
+import java.util.Scanner;
+
+public class P05_Orders {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String product = scanner.nextLine();
+        int quantity = Integer.parseInt(scanner.nextLine());
+
+        switch (product) {
+            case "coffee":
+                printCoffeePrice(product, quantity);
+                break;
+            case "water":
+                printWaterPrice(product, quantity);
+                break;
+            case "coke":
+                printCokePrice(product, quantity);
+                break;
+            case "snacks":
+                printSnacksPrice(product, quantity);
+                break;
+        }
+    }
+
+    public static void printCoffeePrice(String product, double price) {
+
+        if ("coffee".equalsIgnoreCase(product)) {
+            price *= 1.50;
+            System.out.printf("%.2f", price);
+        }
+    }
+
+    public static void printWaterPrice(String product, double price) {
+        if ("water".equalsIgnoreCase(product)) {
+            price *= 1.00;
+            System.out.printf("%.2f", price);
+        }
+    }
+
+    public static void printCokePrice(String product, double price) {
+        if ("coke".equalsIgnoreCase(product)) {
+            price *= 1.40;
+            System.out.printf("%.2f", price);
+        }
+    }
+
+    public static void printSnacksPrice(String product, double price) {
+
+        if ("snacks".equalsIgnoreCase(product)) {
+            price *= 2.00;
+            System.out.printf("%.2f", price);
+        }
+
+    }
+}
