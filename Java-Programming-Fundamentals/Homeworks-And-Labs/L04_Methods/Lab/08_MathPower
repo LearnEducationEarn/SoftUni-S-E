@@ -1,0 +1,29 @@
+
+
+package L04_Methods_Lab;
+
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class P08_MathPower {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double number = Double.parseDouble(scanner.nextLine());
+        int step = Integer.parseInt(scanner.nextLine());
+
+        System.out.println(new DecimalFormat("0.####").format(printPow(number, step)));
+
+
+    }
+
+    public static double printPow(double number, int step) {
+
+        double result = 1;
+        for (int i = 0; i < step; i++) {
+            result *= number;
+        }
+        return result;
+    }
+}
