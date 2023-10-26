@@ -1,2 +1,133 @@
 
 
+package L05_Lists_Exercise;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class P10_SoftUniCoursePlanning {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        
+        List<String> topics = Arrays.stream(scanner.nextLine() //"Data Types, Objects, Lists"
+                        .split(", ")) //["Data Types", "Objects", "Lists"]
+                .collect(Collectors.toList()); //{"Data Types", "Objects", "Lists"}
+
+        String command = scanner.nextLine();
+        while (!command.equals("course start")) {
+            //валидна команда
+            //1. command = "Add:{lessonTitle}".split(":")                -> ["Add", "{lessonTitle}"]
+            //2. command = "Insert:{lessonTitle}:{index}".split(":")     -> ["Insert", "{lessonTitle}", "{index}"]
+            //3. command = "Remove:{lessonTitle}".split(":")             -> ["Remove", "{lessonTitle}"]
+            //4. command = "Swap:{lessonTitle}:{lessonTitle}".split(":") -> ["Swap", "{lessonTitle}", "{lessonTitle}"]
+            //5. command = "Exercise:{lessonTitle}".split(":")           -> ["Exercise", "{lessonTitle}"]
+            String[] commandParts = command.split(":");
+            String commandName = commandParts[0]; //"Add", "Insert", "Remove", "Swap", "Exercise"
+            String topic = commandParts[1]; 
+
+            switch (commandName) {
+                case "Add":
+                    //command = "Add:Databases"
+                    //add the lesson to the end of the schedule, if it does not exist
+                    if (!topics.contains(topic)) {
+                        topics.add(topic);
+                    }
+                    break;
+                case "Insert":
+                    //command = "Insert:Databases:1".split(":") -> ["Insert", "Databases", "1"]
+                    //insert the lesson to the given index, if it does not exist
+                    int indexForInsert = Integer.parseInt(commandParts[2]); 
+                    if (!topics.contains(topic)) {
+                        topics.add(indexForInsert, topic);
+                    }
+                    break;
+                case "Remove":
+                    //command = "Remove:Data Types"
+                    //remove the lesson, if it exists
+                    if (topics.contains(topic)) {
+                        int topicIndex = topics.indexOf(topic);
+                        String exerciseName = topic + "-Exercise";
+                        boolean hasExercise = topicIndex != topics.size() - 1 && topics.get(topicIndex + 1).equals(exerciseName);
+                      
+                        topics.remove(topic);
+                        
+                        if (hasExercise) {
+                            topics.remove(exerciseName);
+                        }
+                    }
+
+                    break;
+                case "Swap":
+                    //command = "Swap:Data Types:Objects".split(":") -> ["Swap", "{lessonTitle1}", "{lessonTitle2}"]
+                    //change the place of the two lessons, if they exist
+                   
+                    String topic2 = commandParts[2]; 
+
+                    if (topics.contains(topic) && topics.contains(topic2)) {
+                        
+                        int indexFirst = topics.indexOf(topic); 
+                        int indexSecond = topics.indexOf(topic2); 
+
+                        topics.set(indexSecond, topic);
+                        topics.set(indexFirst, topic2);
+
+                        //размяна на упражнения
+                        String exFirstTopic = topic + "-Exercise"; 
+                        String exSecondTopic = topic2 + "-Exercise"; 
+
+                      
+                        if (topics.contains(exFirstTopic)) {
+                            topics.remove(exFirstTopic);
+                            topics.add(topics.indexOf(topic) + 1, exFirstTopic);
+                        }
+
+                        
+                        if (topics.contains(exSecondTopic)) {
+                            topics.remove(exSecondTopic);
+                            topics.add(topics.indexOf(topic2) + 1, exSecondTopic);
+                        }
+                    }
+                    break;
+                case "Exercise":
+                    //command = "Exercise:Methods"
+                   
+                    String exerciseName = topic + "-Exercise"; 
+                   
+                    if (topics.contains(topic)) {
+                       
+                        int indexTopic = topics.indexOf(topic);
+                       
+                        if (indexTopic == topics.size() - 1) {
+                            
+                            topics.add(exerciseName);
+
+                        }
+                        
+                        else if (!topics.get(indexTopic + 1).equals(exerciseName)) {
+                           
+                           topics.add(indexTopic + 1, exerciseName);
+                        }
+                    } else {
+                       
+                        topics.add(topic);
+                        topics.add(exerciseName);
+                    }
+
+                    break;
+
+            }
+
+            command = scanner.nextLine();
+        }
+
+        int number = 1; 
+        for (String topic : topics) {
+            System.out.println(number + "." + topic);
+            number++;
+        }
+    }
+}
