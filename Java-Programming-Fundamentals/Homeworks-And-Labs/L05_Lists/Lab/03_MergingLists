@@ -1,1 +1,41 @@
 
+
+package L05_Lists_Lab;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class P03_MergingLists {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] firstSequence = scanner.nextLine().split(" ");
+        String[] secondSequence = scanner.nextLine().split(" ");
+        List<String> result = new ArrayList<>();
+
+        int firstSequenceInx = 0;
+        int secondSequenceInx = 0;
+        boolean isFirstSequenceTurn = true;
+        while (firstSequenceInx >= 0 && firstSequenceInx < firstSequence.length && secondSequenceInx >= 0 && secondSequenceInx < secondSequence.length) {
+
+            if (isFirstSequenceTurn){
+                result.add(firstSequence[firstSequenceInx]);
+                firstSequenceInx += 1;
+                isFirstSequenceTurn = false;
+            } else {
+                result.add(secondSequence[secondSequenceInx]);
+                secondSequenceInx += 1;
+                isFirstSequenceTurn = true;
+            }
+        }
+        for (int i = firstSequenceInx; i < firstSequence.length ; i++) {
+            result.add(firstSequence[i]);
+        }
+        for (int i = secondSequenceInx; i < secondSequence.length ; i++) {
+            result.add(secondSequence[i]);
+        }
+        System.out.println(String.join(" ", result.stream().map(e -> String.valueOf(e)).toArray(String[]::new)));
+
+    }
+}
