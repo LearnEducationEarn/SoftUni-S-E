@@ -1,0 +1,26 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_Lab;
+
+import java.util.Scanner;
+
+public class P04_TimeAfterThirteenMinutes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int currentHours = Integer.parseInt(scanner.nextLine());
+        int currentMinutes = Integer.parseInt(scanner.nextLine());
+
+        int hour = currentHours * 60;
+
+        int hours = (hour + currentMinutes + 30) / 60;
+        int minutes = (currentMinutes + 30) % 60;
+
+        if (hours > 23) {
+            hours = 0;
+        }
+        if (minutes < 10) {
+            System.out.printf("%d:0%d", hours, minutes);
+        } else {
+            System.out.printf("%d:%d", hours, minutes);
+        }
+    }
+}
