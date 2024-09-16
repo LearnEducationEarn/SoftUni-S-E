@@ -1,0 +1,54 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_Lab;
+
+import java.util.Scanner;
+
+public class P07_TheatrePromotion2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String dayType = scanner.nextLine();
+        int age = Integer.parseInt(scanner.nextLine());
+
+        String day = dayType.toLowerCase();
+
+        double ticketPrice = 0.0;
+        boolean isValid = true;
+        switch (day) {
+            case "weekday"-> {
+                if ((age >= 0 && age <= 18) || age > 64 && age <= 122) {
+                    ticketPrice = 12;
+                } else if (age > 18 && age <= 64) {
+                    ticketPrice = 18;
+                } else {
+                    isValid = false;
+                }
+            }
+            case "weekend" -> {
+                if ((age >= 0 && age <= 18) || age > 64 && age <= 122) {
+                    ticketPrice = 15;
+                } else if (age > 18 && age <= 64) {
+                    ticketPrice = 20;
+                } else {
+                    isValid = false;
+                }
+            }
+            case "holiday" -> {
+                if (age >= 0 && age <= 18) {
+                    ticketPrice = 5;
+                } else if (age > 18 && age <= 64) {
+                    ticketPrice = 12;
+                } else if (age > 64 && age <= 122){
+                    ticketPrice = 10;
+                } else  {
+                    isValid = false;
+                }
+            }
+        }
+        if (isValid) {
+            System.out.printf("%.0f$", ticketPrice);
+        } else {
+            System.out.println("Error!");
+        }
+    }
+}
+
