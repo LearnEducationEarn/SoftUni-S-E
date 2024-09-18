@@ -18,5 +18,4 @@ public class P09_SumOfOddNumbers {
         System.out.println("Sum: " + sum);
     }
 }
-//Решени и качени!!!
 
