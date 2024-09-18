@@ -1,0 +1,11 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_Lab;
+
+public class P08_DivisibleByThree1 {
+    public static void main(String[] args) {
+
+        for (int i = 3; i <= 100; i+=3) {
+            System.out.println(i);
+        }
+    }
+}
+
