@@ -1,0 +1,22 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_Lab;
+
+import java.util.Scanner;
+
+public class P11_EvenNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String command = scanner.nextLine();
+        while (true) {
+            int currentNumber = Integer.parseInt(command);
+            if (currentNumber % 2 == 0) {
+                System.out.println("The number is: " + Math.abs(currentNumber));
+                break;
+            } else {
+                System.out.println("Please write an even number.");
+            }
+            command = scanner.nextLine();
+        }
+    }
+}
+
