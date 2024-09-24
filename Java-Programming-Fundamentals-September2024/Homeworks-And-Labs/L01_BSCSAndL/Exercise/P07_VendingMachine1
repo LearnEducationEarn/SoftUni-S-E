@@ -1,0 +1,80 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_Exercise;
+
+import java.util.Scanner;
+
+public class P07_VendingMachine1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String command = scanner.nextLine();
+
+        double totalInsertMoney = 0;
+        while (!command.equals("Start")) {
+            double coin = Double.parseDouble(command);
+
+            if (coin == 0.1 || coin == 0.2 || coin == 0.5 || coin == 1 || coin == 2) {
+                totalInsertMoney += coin;
+            } else {
+                System.out.printf("Cannot accept %.2f%n", coin);
+            }
+            command = scanner.nextLine();
+        }
+        String input = scanner.nextLine();
+        double priceForProducts = 0.0;
+        String productName = "";
+        double moneyLeft = totalInsertMoney;
+        while (!input.equals("End")) {
+            if (input.equals("Nuts")) {
+                priceForProducts = 2.0;
+                if (priceForProducts <= totalInsertMoney) {
+                    moneyLeft -= priceForProducts;
+                    productName = "Nuts";
+                    System.out.printf("Purchased %s%n", productName);
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (input.equals("Water")) {
+                priceForProducts = 0.7;
+                if (priceForProducts <= totalInsertMoney) {
+                    moneyLeft -= priceForProducts;
+                    productName = "Water";
+                    System.out.printf("Purchased %s%n", productName);
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (input.equals("Crisps")) {
+                priceForProducts = 1.5;
+                if (priceForProducts <= totalInsertMoney) {
+                    moneyLeft -= priceForProducts;
+                    productName = "Crisps";
+                    System.out.printf("Purchased %s%n", productName);
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (input.equals("Soda")) {
+                priceForProducts = 0.8;
+                if (priceForProducts <= totalInsertMoney) {
+                    moneyLeft -= priceForProducts;
+                    productName = "Soda";
+                    System.out.printf("Purchased %s%n", productName);
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (input.equals("Coke")) {
+                priceForProducts = 1.0;
+                if (priceForProducts <= totalInsertMoney) {
+                    moneyLeft -= priceForProducts;
+                    productName = "Coke";
+                    System.out.printf("Purchased %s%n", productName);
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else {
+                System.out.println("Invalid product\n");
+            }
+            input = scanner.nextLine();
+        }
+        System.out.printf("Change: %.2f%n", moneyLeft);
+
+    }
+}
