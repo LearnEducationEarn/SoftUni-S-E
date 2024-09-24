@@ -1,0 +1,43 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_Exercise;
+
+import java.util.Scanner;
+
+public class P11_RageExpenses {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countOfLostGames = Integer.parseInt(scanner.nextLine());
+        double handsetPrice = Double.parseDouble(scanner.nextLine());
+        double mousePrice = Double.parseDouble(scanner.nextLine());
+        double keyboardPrice = Double.parseDouble(scanner.nextLine());
+        double displayPrice = Double.parseDouble(scanner.nextLine());
+
+        int countHandset = 0;
+        int countMouse = 0;
+        int countKeyboard = 0;
+        int countDisplay = 0;
+
+        double totalCosts = 0.0;
+        for (int lostGame = 1; lostGame <= countOfLostGames; lostGame++) {
+            if (lostGame % 2 == 0) {
+                countHandset++;
+            }
+            if (lostGame % 3 == 0) {
+                countMouse++;
+            }
+            if (lostGame % 6 == 0) {
+                countKeyboard++;
+            }
+            if (lostGame % 12 == 0) {
+                countDisplay++;
+            }
+        }
+        double totalHandsetCosts = (countHandset * handsetPrice);
+        double totalMouseCosts = (countMouse * mousePrice);
+        double totalKeyboardCosts = (countKeyboard * keyboardPrice);
+        double totalDisplayCosts = (countDisplay * displayPrice);
+
+        totalCosts = totalHandsetCosts + totalMouseCosts + totalKeyboardCosts + totalDisplayCosts;
+        System.out.printf("Rage expenses: %.2f lv.", totalCosts);
+    }
+}
