@@ -1,0 +1,25 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_MoreExercise;
+
+import java.util.*;
+
+public class P01_SortNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int firstNumber = Integer.parseInt(scanner.nextLine());
+        int secondNumber = Integer.parseInt(scanner.nextLine());
+        int thirdNumber = Integer.parseInt(scanner.nextLine());
+
+        List<Integer> result = new ArrayList<>();
+        result.add(firstNumber);
+        result.add(secondNumber);
+        result.add(thirdNumber);
+
+        Collections.sort(result);
+        Collections.reverse(result);
+
+        for (int number : result) {
+            System.out.println(number);
+        }
+    }
+}
