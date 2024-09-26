@@ -1,0 +1,94 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_MoreExercise;
+
+import java.util.Scanner;
+
+public class P03_GamingStore {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double currentBalance = Double.parseDouble(scanner.nextLine());
+        double startBalance = currentBalance;
+        String command = scanner.nextLine();
+        while (!command.equals("Game Time")) {
+
+            if (currentBalance <= 0) {;
+                return;
+            }
+            String nameOfGame = "";
+            double price = 0.0;
+            switch (command) {
+                case "OutFall 4":
+                    price = 39.99;
+                    nameOfGame = "OutFall 4";
+                    if (currentBalance < price) {
+                        System.out.println("Too Expensive");
+                    } else {
+                        System.out.printf("Bought %s%n", nameOfGame);
+                        currentBalance -= price;
+                    }
+                    break;
+                case "CS: OG":
+                    price = 15.99;
+                    nameOfGame = "CS: OG";
+                    if (currentBalance < price) {
+                        System.out.println("Too Expensive");
+                    } else {
+                        System.out.printf("Bought %s%n", nameOfGame);
+                        currentBalance -= price;
+                    }
+                    break;
+                case "Zplinter Zell":
+                    price = 19.99;
+                    nameOfGame = "Zplinter Zell";
+                    if (currentBalance < price) {
+                        System.out.println("Too Expensive");
+                    } else {
+                        System.out.printf("Bought %s%n", nameOfGame);
+                        currentBalance -= price;
+                    }
+                    break;
+                case "Honored 2":
+                    price = 59.99;
+                    nameOfGame = "Honored 2";
+                    if (currentBalance < price) {
+                        System.out.println("Too Expensive");
+                    } else {
+                        System.out.printf("Bought %s%n", nameOfGame);
+                        currentBalance -= price;
+                    }
+                    break;
+                case "RoverWatch":
+                    price = 29.99;
+                    nameOfGame = "RoverWatch";
+                    if (currentBalance < price) {
+                        System.out.println("Too Expensive");
+                    } else {
+                        System.out.printf("Bought %s%n", nameOfGame);
+                        currentBalance -= price;
+                    }
+                    break;
+                case "RoverWatch Origins Edition":
+                    price = 39.99;
+                    nameOfGame = "RoverWatch Origins Edition";
+                    if (currentBalance < price) {
+                        System.out.println("Too Expensive");
+                    } else {
+                        System.out.printf("Bought %s%n", nameOfGame);
+                        currentBalance -= price;
+                    }
+                    break;
+                default:
+                    System.out.println("Not Found");
+                    break;
+            }
+            command = scanner.nextLine();
+        }
+        if (currentBalance > 0) {
+            System.out.printf("Total spent: $%.2f. ", startBalance - currentBalance);
+            System.out.printf("Remaining: $%.2f%n", currentBalance);
+        } else {
+            System.out.println("Out of money!");
+        }
+    }
+}
+
