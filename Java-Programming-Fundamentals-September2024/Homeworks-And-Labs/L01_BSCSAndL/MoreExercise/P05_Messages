@@ -1,0 +1,72 @@
+package L01_BasicSyntaxConditionalStatementsAndLoops_MoreExercise;
+
+import java.util.Scanner;
+
+public class P05_Messages {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        String symbols = "";
+        for (int number = 1; number <= n; number++) {
+            int currentNumber = Integer.parseInt(scanner.nextLine());
+            if (currentNumber == 2) {
+                symbols = symbols.concat("a");
+            } else if (currentNumber == 22) {
+                symbols = symbols.concat("b");
+            } else if (currentNumber == 222) {
+                symbols = symbols.concat("c");
+            } else if (currentNumber == 3) {
+                symbols = symbols.concat("d");
+            } else if (currentNumber == 33) {
+                symbols = symbols.concat("e");
+            } else if (currentNumber == 333) {
+                symbols = symbols.concat("f");
+            } else if (currentNumber == 4) {
+                symbols = symbols.concat("g");
+            } else if (currentNumber == 44) {
+                symbols = symbols.concat("h");
+            } else if (currentNumber == 444) {
+                symbols = symbols.concat("i");
+            } else if (currentNumber == 5) {
+                symbols = symbols.concat("j");
+            } else if (currentNumber == 55) {
+                symbols = symbols.concat("k");
+            } else if (currentNumber == 555) {
+                symbols = symbols.concat("l");
+            } else if (currentNumber == 6) {
+                symbols = symbols.concat("m");
+            } else if (currentNumber == 66) {
+                symbols = symbols.concat("n");
+            } else if (currentNumber == 666) {
+                symbols = symbols.concat("o");
+            } else if (currentNumber == 7) {
+                symbols = symbols.concat("p");
+            } else if (currentNumber == 77) {
+                symbols = symbols.concat("q");
+            } else if (currentNumber == 777) {
+                symbols = symbols.concat("r");
+            } else if (currentNumber == 7777) {
+                symbols = symbols.concat("s");
+            } else if (currentNumber == 8) {
+                symbols = symbols.concat("t");
+            } else if (currentNumber == 88) {
+                symbols = symbols.concat("u");
+            } else if (currentNumber == 888) {
+                symbols = symbols.concat("v");
+            } else if (currentNumber == 9) {
+                symbols = symbols.concat("w");
+            } else if (currentNumber == 99) {
+                symbols = symbols.concat("x");
+            } else if (currentNumber == 999) {
+                symbols = symbols.concat("y");
+            } else if (currentNumber == 9999) {
+                symbols = symbols.concat("z");
+            } else if (currentNumber == 0) {
+                symbols = symbols.concat(" ");
+            }
+        }
+        System.out.println(symbols);
+    }
+}
