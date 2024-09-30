@@ -1,0 +1,13 @@
+package L02_DataTypesAndVariables_Lab;
+
+import java.util.Scanner;
+
+public class P02_PoundsToDollars {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        float quantityBritishPound = Float.parseFloat(scanner.nextLine());
+        double poundsToDollars = quantityBritishPound * 1.36;
+        System.out.printf("%.3f", poundsToDollars);
+    }
+}
