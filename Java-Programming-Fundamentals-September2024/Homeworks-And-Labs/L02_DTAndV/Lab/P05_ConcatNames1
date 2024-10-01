@@ -1,0 +1,16 @@
+package L02_DataTypesAndVariables_Lab;
+
+import java.util.Scanner;
+
+public class P05_ConcatNames1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String firstName = scanner.nextLine();
+        String lastName = scanner.nextLine();
+        String delimiter = scanner.nextLine();
+
+        String result = firstName + delimiter + lastName;
+        System.out.println(result);
+    }
+}
