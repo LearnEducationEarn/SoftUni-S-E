@@ -1,0 +1,28 @@
+package L02_DataTypesAndVariables_Lab;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class P07_ReversedChars1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        char firstSymbol = scanner.nextLine().charAt(0);
+        char secondSymbol = scanner.nextLine().charAt(0);
+        char thirdSymbol = scanner.nextLine().charAt(0);
+
+        List<Character> symbols = new ArrayList<>();
+        symbols.add(firstSymbol);
+        symbols.add(secondSymbol);
+        symbols.add(thirdSymbol);
+
+        Collections.reverse(symbols);
+
+        for (char symbol : symbols) {
+            System.out.print(symbol + " ");
+        }
+    }
+}
+
