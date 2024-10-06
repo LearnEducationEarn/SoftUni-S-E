@@ -1,0 +1,18 @@
+package L02_DataTypesAndVariables_Exercise;
+
+import java.util.Scanner;
+
+public class P04_SumOfChars {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countSymbols = Integer.parseInt(scanner.nextLine());
+
+        int sumOfDigits = 0;
+        for (int symbol = 1; symbol <= countSymbols; symbol++) {
+            char currentSymbol = scanner.nextLine().charAt(0);
+            sumOfDigits += currentSymbol;
+        }
+        System.out.println("The sum equals: " + sumOfDigits);
+    }
+}
