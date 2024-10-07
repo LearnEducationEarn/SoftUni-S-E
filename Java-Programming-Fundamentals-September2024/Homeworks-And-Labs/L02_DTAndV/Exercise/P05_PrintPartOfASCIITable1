@@ -1,0 +1,14 @@
+package L02_DataTypesAndVariables_Exercise;
+import java.util.Scanner;
+public class P05_PrintPartOfASCIITable1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int startIndex = Integer.parseInt(scanner.nextLine());
+        int endIndex = Integer.parseInt(scanner.nextLine());
+
+        for (int index = startIndex; index <= endIndex; index++) {
+            System.out.print((char) index + " ");
+        }
+    }
+}
