@@ -1,0 +1,23 @@
+package L02_DataTypesAndVariables_Exercise;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class P05_PrintPartOfASCIITable {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        short startIndex = Short.parseShort(scanner.nextLine());
+        short endIndex = Short.parseShort(scanner.nextLine());
+
+        List<Character> symbols = new ArrayList<>();
+        for (int index = startIndex; index <= endIndex; index++) {
+            symbols.add((char)index);
+        }
+        for (int symbol : symbols) {
+            System.out.print((char)symbol + " ");
+        }
+    }
+}
+
