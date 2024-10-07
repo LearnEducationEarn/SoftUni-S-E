@@ -1,0 +1,27 @@
+package L02_DataTypesAndVariables_Exercise;
+
+import java.util.Scanner;
+
+public class P07_WaterOverflow1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        short waterTank = 255;
+        short currentLiters = 0;
+
+        short n = Short.parseShort(scanner.nextLine());
+
+        for (int i = 1; i <= n; i++) {
+            short quantityOfWaters = Short.parseShort(scanner.nextLine());
+
+            currentLiters += quantityOfWaters;
+
+            if (currentLiters > waterTank) {
+                System.out.println("Insufficient capacity!");
+                currentLiters -= quantityOfWaters;
+            }
+        }
+        System.out.println(currentLiters);
+    }
+}
+
