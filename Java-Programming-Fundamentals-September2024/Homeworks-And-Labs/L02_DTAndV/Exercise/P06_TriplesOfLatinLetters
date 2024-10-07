@@ -1,0 +1,19 @@
+package L02_DataTypesAndVariables_Exercise;
+
+import java.util.Scanner;
+
+public class P06_TriplesOfLatinLetters {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        byte n = Byte.parseByte(scanner.nextLine());
+
+        for (char letterA = 'a'; letterA < 'a' + n; letterA++) {
+            for (char letterB = 'a'; letterB < 'a' + n; letterB++) {
+                for (char letterC = 'a'; letterC < 'a' + n; letterC++) {
+                    System.out.printf("%c%c%c%n", letterA, letterB, letterC);
+                }
+            }
+        }
+    }
+}
