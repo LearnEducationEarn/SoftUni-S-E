@@ -1,1 +1,34 @@
+package L02_DataTypesAndVariables_Exercise;
 
+import java.util.Scanner;
+
+public class P11_Snowballs1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        short countSnowballs = Short.parseShort(scanner.nextLine());
+
+        double highestValue = Double.MIN_VALUE;
+        short maxSnowballSnow = 0;
+        short maxSnowballTime = 0;
+        short maxSnowballQuality = 0;
+
+        for (int i = 1; i <= countSnowballs; i++) {
+           
+            byte snowballSnow = Byte.parseByte(scanner.nextLine());
+            byte snowballTime = Byte.parseByte(scanner.nextLine());
+            byte snowballQuality = Byte.parseByte(scanner.nextLine());
+
+            double snowballValue = Math.pow(snowballSnow * 1.0 / snowballTime, snowballQuality);
+
+            if (snowballValue > highestValue) {
+              
+                highestValue = snowballValue;
+                maxSnowballSnow = snowballSnow;
+                maxSnowballTime = snowballTime;
+                maxSnowballQuality = snowballQuality;
+            }
+        }
+        System.out.printf("%d : %d = %.0f (%d)", maxSnowballSnow, maxSnowballTime, highestValue, maxSnowballQuality);
+    }
+}
