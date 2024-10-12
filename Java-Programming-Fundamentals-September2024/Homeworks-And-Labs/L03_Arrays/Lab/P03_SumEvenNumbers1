@@ -1,0 +1,20 @@
+package L03_Arrays_Lab;
+import java.util.*;
+import java.util.Scanner;
+
+public class P03_SumEvenNumbers1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] numbers = Arrays.stream(scanner.nextLine().split(" ")).mapToInt((e) -> Integer.parseInt(e)).toArray();
+
+        int sumOfEvenNumbers = 0;
+
+        for (int number = 0; number <= numbers.length - 1; number++) {
+            if (numbers[number] % 2 == 0) {
+                sumOfEvenNumbers += numbers[number];
+            }
+        }
+        System.out.println(sumOfEvenNumbers);
+    }
+}
