@@ -1,0 +1,36 @@
+package L03_Arrays_Lab;
+
+import java.util.*;
+import java.util.Scanner;
+
+public class P06_EqualArrays {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] firstArray = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+
+        int[] secondArray = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+
+        boolean isIdentical = true;
+        int sum = 0;
+        for (int number = 0; number <= firstArray.length - 1; number++) {
+            int firstArrayNum = firstArray[number];
+            int secondArrayNum = secondArray[number];
+
+
+            if (firstArrayNum == secondArrayNum) {
+                sum += firstArrayNum;
+
+            } else {
+                int index = number;
+                isIdentical = false;
+                System.out.printf("Arrays are not identical. Found difference at %d index.", index);
+                break;
+            }
+        }
+        if (isIdentical) {
+            System.out.printf("Arrays are identical. Sum: %d", sum);
+        }
+    }
+}
+
