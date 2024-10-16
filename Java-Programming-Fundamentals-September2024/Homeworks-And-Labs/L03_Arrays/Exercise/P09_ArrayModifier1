@@ -1,0 +1,55 @@
+package L03_Arrays_Exercise;
+
+import java.util.*;
+import java.util.Scanner;
+
+public class P09_ArrayModifier1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] numbers = Arrays.stream(scanner.nextLine()
+                        .split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        String command = scanner.nextLine();
+        while (!command.equals("end")) {
+
+            if (command.contains("swap")) {
+                int firstNumberPosition = Integer.parseInt(command.split(" ")[1]);
+                int secondNumberPosition = Integer.parseInt(command.split(" ")[2]);
+
+                int firstNumber = numbers[firstNumberPosition];
+                int secondNumber = numbers[secondNumberPosition];
+
+                numbers[firstNumberPosition] = secondNumber;
+                numbers[secondNumberPosition] = firstNumber;
+
+            } else if (command.contains("multiply")) {
+                int firstNumberPosition = Integer.parseInt(command.split(" ")[1]);
+                int secondNumberPosition = Integer.parseInt(command.split(" ")[2]);
+
+                int firstNumber = numbers[firstNumberPosition];
+                int secondNumber = numbers[secondNumberPosition];
+
+                int result = firstNumber * secondNumber;
+                numbers[firstNumberPosition] = result;
+            } else if (command.equals("decrease")) {
+                for (int element = 0; element <= numbers.length - 1; element++) {
+                    numbers[element] -= 1;
+                }
+            }
+            command = scanner.nextLine();
+        }
+        for (int position = 0; position <= numbers.length -1; position++) {
+            int number = numbers[position];
+            if (position != numbers.length - 1) {
+                System.out.print(number + ", ");
+            } else {
+                System.out.print(number);
+            }
+        }
+    }
+}
+
+
