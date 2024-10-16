@@ -1,1 +1,51 @@
+package L03_Arrays_Exercise;
+
+import java.util.*;
+import java.util.Scanner;
+
+public class  P09_ArrayModifier {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] numbers = Arrays.stream(scanner.nextLine()
+                        .split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        String command = scanner.nextLine();
+        while (!command.equals("end")) {
+            int[] startArray = numbers.clone();
+            String[] commandParts = command.split(" ");
+            if (!command.equals("decrease")) {
+                String currentCommand = commandParts[0];
+                int firstIndex = Integer.parseInt(commandParts[1]);
+                int secondIndex = Integer.parseInt(commandParts[2]);
+
+                switch (currentCommand) {
+                    case "swap":
+                        numbers[firstIndex] = startArray[secondIndex];
+                        numbers[secondIndex] = startArray[firstIndex];
+                        break;
+                    case "multiply":
+                        int result = numbers[firstIndex] * numbers[secondIndex];
+                        numbers[firstIndex] = result;
+                        break;
+                }
+            } else {
+
+                for (int number = 0; number <= numbers.length - 1; number++) {
+                    numbers[number] -= 1;
+                }
+            }
+
+            command = scanner.nextLine();
+        }
+        String[] result = new String[numbers.length];
+        for (int position = 0; position <= numbers.length -1; position++) {
+            result[position] += numbers[position];
+        }
+        System.out.print(String.join(", ", result).replace("null", ""));
+
+    }
+}
 
