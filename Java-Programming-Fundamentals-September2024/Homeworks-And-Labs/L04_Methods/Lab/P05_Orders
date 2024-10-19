@@ -1,0 +1,42 @@
+package L04_Methods_Lab;
+
+import java.util.Scanner;
+
+public class P05_Orders {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String product = scanner.nextLine();
+        int quantity = Integer.parseInt(scanner.nextLine());
+
+        printTotalPrice(product, quantity);
+    }
+
+    private static void printTotalPrice(String product, int quantity) {
+        double coffeePrice = 1.50;
+        double waterPrice = 1.00;
+        double cokePrice =  1.40;
+        double snacksPrice = 2.00;
+
+        double totalPrice = 0.0;
+        if (product.equals("coffee")) {
+
+            totalPrice = quantity * coffeePrice;
+        } else if (product.equals("water")) {
+
+            totalPrice = quantity * waterPrice;
+
+        } else if (product.equals("coke")) {
+
+            totalPrice = quantity * cokePrice;
+
+        } else if (product.equals("snacks")) {
+
+            totalPrice = quantity * snacksPrice;
+
+        }
+        System.out.printf("%.2f%n", totalPrice);
+    }
+}
+
+
