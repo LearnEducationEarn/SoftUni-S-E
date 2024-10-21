@@ -1,0 +1,24 @@
+package L04_Methods_Lab;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class P08_MathPower1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double number = Double.parseDouble(scanner.nextLine());
+        int power = Integer.parseInt(scanner.nextLine());
+
+        String result = new DecimalFormat("0.####").format(getValueOfRaisedNumber(number, power));
+
+        System.out.println(result);
+    }
+
+    private static double getValueOfRaisedNumber(double number, int power) {
+
+        return Math.pow(number, power);
+    }
+}
+
+
