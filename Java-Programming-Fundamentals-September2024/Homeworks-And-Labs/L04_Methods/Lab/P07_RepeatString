@@ -14,6 +14,7 @@ public class P07_RepeatString {
     }
 
     private static String getNewString(String text, byte count) {
+      
         String result = "";
         for (int i = 1; i <= count; i++) {
 
