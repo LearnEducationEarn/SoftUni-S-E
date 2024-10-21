@@ -1,0 +1,24 @@
+package L04_Methods_Lab;
+
+import java.util.Scanner;
+
+public class P07_RepeatString {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+        byte count = Byte.parseByte(scanner.nextLine());
+        String newText = getNewString(text, count);
+
+        System.out.println(newText);
+    }
+
+    private static String getNewString(String text, byte count) {
+        String result = "";
+        for (int i = 1; i <= count; i++) {
+
+            result += text;
+        }
+        return result;
+    }
+}
