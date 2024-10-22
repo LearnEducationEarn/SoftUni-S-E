@@ -1,1 +1,40 @@
+package L04_Methods_Lab;
 
+import java.util.Scanner;
+
+public class P11_MathOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        byte firstNumber = Byte.parseByte(scanner.nextLine());
+        String operator = scanner.nextLine();
+        byte secondNumber = Byte.parseByte(scanner.nextLine());
+
+        switch (operator) {
+            case "*" -> System.out.println(getOperationMultiply(firstNumber, secondNumber));
+            case "+" -> System.out.println(getOperationAdd(firstNumber, secondNumber));
+            case "/" -> System.out.println(getOperationDivide(firstNumber, secondNumber));
+            case "-" -> System.out.println(getOperationSubtract(firstNumber, secondNumber));
+        }
+    }
+
+    private static int getOperationMultiply(int firstNumber, int secondNumber) {
+
+        return firstNumber * secondNumber;
+    }
+
+    private static int getOperationAdd(int firstNumber, int secondNumber) {
+
+        return firstNumber + secondNumber;
+    }
+
+    private static int getOperationDivide(int firstNumber, int secondNumber) {
+
+        return firstNumber / secondNumber;
+    }
+
+    private static int getOperationSubtract(int firstNumber, int secondNumber) {
+
+        return firstNumber - secondNumber;
+    }
+}
