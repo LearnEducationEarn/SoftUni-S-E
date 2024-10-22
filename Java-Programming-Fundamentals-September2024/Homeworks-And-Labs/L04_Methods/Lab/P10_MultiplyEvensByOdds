@@ -1,0 +1,43 @@
+package L04_Methods_Lab;
+import java.util.Scanner;
+public class P10_MultiplyEvensByOdds {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int numbers = Math.abs(Integer.parseInt(scanner.nextLine()));
+
+        int result = getSumOfEvenNumbers(numbers) * getSumOfOddNumbers(numbers);
+
+        System.out.println(result);
+    }
+
+    private static int getSumOfEvenNumbers(int numbers) {
+
+        int sumOfEvenNumbers = 0;
+        while (numbers > 0) {
+
+            int currentNumber = numbers % 10;
+            if (currentNumber % 2 == 0) {
+
+                sumOfEvenNumbers += currentNumber;
+            }
+            numbers /= 10;
+        }
+        return sumOfEvenNumbers;
+    }
+
+    private static int getSumOfOddNumbers(int numbers) {
+
+        int sumOfOddNumbers = 0;
+        while (numbers > 0) {
+
+            int currentNumber = numbers % 10;
+            if (currentNumber % 2 !=0) {
+
+                sumOfOddNumbers += currentNumber;
+            }
+            numbers /= 10;
+        }
+        return sumOfOddNumbers;
+    }
+}
