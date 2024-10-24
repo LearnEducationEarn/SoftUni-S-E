@@ -1,0 +1,46 @@
+package L04_Methods_Exercise;
+
+import java.util.Scanner;
+
+public class P02_VowelsCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+
+        printCountOfVowels(text);
+    }
+
+    private static void printCountOfVowels(String text) {
+
+        int sumOfVowels = 0;
+        for (int position = 0; position <= text.length() - 1; position++) {
+
+            String currentText = text.toLowerCase();
+            char currentSymbol = currentText.charAt(position);
+            if (currentSymbol == 97) {
+
+                sumOfVowels ++;
+
+            } else if (currentSymbol == 101) {
+
+                sumOfVowels ++;
+
+            } else if (currentSymbol == 105) {
+
+                sumOfVowels ++;
+
+            } else if (currentSymbol == 111) {
+
+                sumOfVowels ++;
+
+            } else if (currentSymbol == 117) {
+
+                sumOfVowels ++;
+
+            }
+        }
+        System.out.println(sumOfVowels);
+    }
+}
+
