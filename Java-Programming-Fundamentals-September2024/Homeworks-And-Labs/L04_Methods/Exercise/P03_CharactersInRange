@@ -1,0 +1,33 @@
+package L04_Methods_Exercise;
+
+import java.util.Scanner;
+
+public class P03_CharactersInRange {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        char firstChar = scanner.nextLine().charAt(0);
+        char secondChar = scanner.nextLine().charAt(0);
+
+        printSymbolInRange(firstChar, secondChar);
+    }
+
+    private static void printSymbolInRange(int firstSymbol, int secondSymbol) {
+
+        if (firstSymbol < secondSymbol) {
+
+            for (int asciiValue = firstSymbol + 1; asciiValue < secondSymbol; asciiValue++) {
+
+                System.out.print((char) asciiValue + " ");
+            }
+        } else {
+
+            for (int asciiValue = secondSymbol + 1; asciiValue < firstSymbol; asciiValue++) {
+
+                System.out.print((char) asciiValue + " ");
+            }
+        }
+    }
+}
+
+
