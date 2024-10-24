@@ -1,0 +1,31 @@
+package L04_Methods_Exercise;
+
+import java.util.Scanner;
+
+public class P02_VowelsCount1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+
+        printVowelsCount(text);
+    }
+
+    private static void printVowelsCount(String text) {
+
+        String currentText = text.toLowerCase();
+        int countOfVowels = 0;
+
+        for (char symbol : currentText.toCharArray()) {
+
+            if (symbol == ('a') || symbol == ('e') || symbol == ('o') || symbol == ('u') || symbol == ('i')) {
+
+                countOfVowels ++;
+            }
+        }
+
+        System.out.println(countOfVowels);
+
+    }
+}
+
