@@ -1,0 +1,27 @@
+package L04_Methods_Exercise;
+
+import java.util.Scanner;
+
+public class P05_AddAndSubtract {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int firstNumber = Integer.parseInt(scanner.nextLine());
+        int secondNumber = Integer.parseInt(scanner.nextLine());
+        int thirdNumber = Integer.parseInt(scanner.nextLine());
+
+        System.out.println(getResultFromSubtract(firstNumber, secondNumber, thirdNumber));
+    }
+
+    private static int getSumOfFirstTwoNumbers(int n1, int n2) {
+
+        return n1 + n2;
+    }
+
+    private static int getResultFromSubtract(int n1, int n2, int n3) {
+
+        return  getSumOfFirstTwoNumbers(n1, n2) - n3;
+
+    }
+}
+
