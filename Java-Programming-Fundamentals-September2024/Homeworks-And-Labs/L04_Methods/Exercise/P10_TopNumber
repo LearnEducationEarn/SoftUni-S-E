@@ -1,0 +1,49 @@
+package L04_Methods_Exercise;
+
+import java.util.Scanner;
+
+public class P10_TopNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int number = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 1; i <= number; i++) {
+
+
+            boolean isValidSumDigits = checkSumDigitsIsDivisibleByEight(i);
+            boolean isContainingOddDigit = checkContainsOddDigits(i);
+
+            if (isValidSumDigits && isContainingOddDigit) {
+
+                System.out.println(i);
+            }
+        }
+    }
+
+    private static boolean checkSumDigitsIsDivisibleByEight(int number) {
+
+        int sum = 0;
+
+        while (number > 0) {
+            int lastDigit = number % 10;
+            sum += lastDigit;
+            number /= 10;
+        }
+        return sum % 8 == 0;
+    }
+
+    private static boolean checkContainsOddDigits(int number) {
+
+        while (number > 0) {
+
+            int lastDigit = number % 10;
+            if (lastDigit % 2 != 0) {
+                return true;
+            } else {
+                number /= 10;
+            }
+        }
+        return false;
+    }
+}
