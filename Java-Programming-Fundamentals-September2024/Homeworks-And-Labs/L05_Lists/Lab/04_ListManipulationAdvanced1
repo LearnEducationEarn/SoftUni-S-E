@@ -1,0 +1,129 @@
+package L05_Lists_Lab;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P04_ListManipulationAdvanced1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> numbers = Arrays.stream(scanner.nextLine()
+                        .split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
+
+        String command = scanner.nextLine();
+        while (!command.equals("end")) {
+
+            String[] currentParts = command.split(" ");
+            String currentCommand = currentParts[0];
+            if (currentCommand.equals("Print") || currentCommand.equals("Get") ) {
+
+                currentCommand = currentCommand + " " + currentParts[1];
+            }
+
+            switch (currentCommand) {
+
+                case "Contains" -> {
+
+                    int numberToContains = Integer.parseInt(currentParts[1]);
+
+                    if (numbers.contains(numberToContains)) {
+
+                        System.out.println("Yes");
+
+                    } else {
+
+                        System.out.println("No such number");
+                    }
+                }
+                case "Print even" -> {
+
+                    for (int element : numbers) {
+
+                        if (element % 2 == 0) {
+
+                            System.out.print(element + " ");
+                        }
+                    }
+                    System.out.println();
+                }
+                case "Print odd" -> {
+
+                    for (int element : numbers) {
+
+                        if (element % 2 != 0) {
+
+                            System.out.print(element + " ");
+                        }
+                    }
+                    System.out.println();
+                }
+                case "Get sum" -> {
+
+                    int sum = 0;
+                    for (int element : numbers) {
+                        sum += element;
+                    }
+                    System.out.println(sum);
+                }
+                case "Filter" -> {
+
+                    String condition = currentParts[1];
+                    int numberToFilter = Integer.parseInt(currentParts[2]);
+
+
+                    if (condition.equals("<")) {
+
+                        for (int element = 0; element <= numbers.size() - 1; element++) {
+
+                            if (numbers.get(element) < numberToFilter) {
+
+                                System.out.print(numbers.get(element) + " ");
+                            }
+                        }
+                        System.out.println();
+
+                    } else if (condition.equals("<=")) {
+
+                        for (int element = 0; element <= numbers.size() - 1; element++) {
+
+                            if (numbers.get(element) <= numberToFilter) {
+
+                                System.out.printf(numbers.get(element) + " ");
+                            }
+                        }
+                        System.out.println();
+                    } else if (condition.equals(">")) {
+
+                        for (int element = 0; element <= numbers.size() - 1; element++) {
+
+                            if (numbers.get(element) > numberToFilter) {
+
+                                System.out.print(numbers.get(element) + " ");
+                            }
+
+                            System.out.println();
+
+                        }
+                    } else if (condition.equals(">=")) {
+
+                        for (int element = 0; element <= numbers.size() - 1; element++) {
+
+                            if (numbers.get(element) >= numberToFilter) {
+
+                                System.out.print(numbers.get(element) + " ");
+                            }
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+
+            command = scanner.nextLine();
+        }
+    }
+}
