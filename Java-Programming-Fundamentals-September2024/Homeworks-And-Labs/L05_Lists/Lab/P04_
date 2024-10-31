@@ -1,1 +1,165 @@
+package L05_Lists_Lab;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class P04_ListManipulationAdvanced {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+                List<Integer> numbers = Arrays.stream(scanner.nextLine().split(" ")).map(Integer::parseInt)
+                        .collect(Collectors.toList());
+
+                String command = scanner.nextLine();
+
+                while (!command.equals("end")) {
+
+                    if (command.startsWith("Contains")) {
+
+                        int numbToCheck = Integer.parseInt(command.split(" ")[1]);
+                        printIsContain(numbers, numbToCheck);
+
+                    } else if (command.startsWith("Print even")) {
+
+                        printEven(numbers);
+
+
+                    } else if (command.startsWith("Print odd")) {
+
+                        printOdd(numbers);
+
+
+
+                    } else if (command.startsWith("Get sum")) {
+
+                        printSum(numbers);
+
+                    } else if (command.startsWith("Filter")) {
+
+                        int numberForChecking = Integer.parseInt(command.split(" ")[2]);
+                        String sign = command.split(" ")[1];
+                        printFilter(numbers, sign, numberForChecking);
+
+                    }
+
+                    command = scanner.nextLine();
+
+                }
+
+            }
+
+            public static void printFilter(List<Integer> newNumbers, String sign, int numberForChecking) {
+                //'<', '>', ">=", "<="
+
+                if (sign.equals(">")) {
+
+                    for (int number : newNumbers) {
+
+                        if (number > numberForChecking) {
+
+                            System.out.print(number + " ");
+
+                        }
+
+                    }
+                    System.out.println();
+
+                } else if (sign.equals(">=")) {
+
+                    for (int number : newNumbers) {
+
+                        if (number >= numberForChecking) {
+
+                            System.out.print(number + " ");
+
+                        }
+
+                    }
+
+                    System.out.println();
+
+                } else if (sign.equals("<")) {
+
+                    for (int number : newNumbers) {
+
+                        if (number < numberForChecking) {
+
+                            System.out.print(number + " ");
+
+                        }
+                    }
+
+                    System.out.println();
+
+                } else if (sign.equals("<=")) {
+
+                    for (int number : newNumbers) {
+
+                        if (number <= numberForChecking) {
+
+                            System.out.print(number + " ");
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+
+            public static void printEven(List<Integer> newNumbers) {
+
+                for (int number:newNumbers){
+
+                    if (number % 2 == 0) {
+
+                        System.out.print(number + " ");
+
+                    }
+                }
+                System.out.println();
+
+            }
+
+            public static void printOdd(List<Integer> newNumbers) {
+
+                for (int number:newNumbers){
+
+                    if (number % 2 != 0) {
+
+                        System.out.print(number + " ");
+
+
+                    }
+                }
+                System.out.println();
+
+            }
+
+            public static void printIsContain(List<Integer> newNumbers, int numbToCheck) {
+                if (newNumbers.contains(numbToCheck)) {
+
+                    System.out.println("Yes");
+
+                } else {
+
+                    System.out.println("No such number");
+                }
+            }
+
+            public static void printSum(List<Integer>newNumbers){
+                int sum = 0;
+
+                for (int i = 0; i <= newNumbers.size() - 1; i++) {
+
+                    int numbPart = newNumbers.get(i);
+                    sum += numbPart;
+                }
+
+                System.out.println(sum);
+
+            }
+        }
+
+
+
 
