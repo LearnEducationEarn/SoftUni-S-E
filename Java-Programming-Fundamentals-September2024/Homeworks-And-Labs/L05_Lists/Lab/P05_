@@ -1,1 +1,51 @@
+package L05_Lists_Lab;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class P05_ListOfProducts {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        List<String> products = new ArrayList<>();
+
+        addElementsInList(n, scanner, products);
+
+        elementsSort(products);
+
+        getElementsInList(products);
+    }
+
+    private static void elementsSort(List<String> products) {
+
+        Collections.sort(products);
+    }
+
+    private static void addElementsInList(int n, Scanner scanner, List<String> products) {
+
+        for (int i = 1; i <= n; i++) {
+
+            String command = scanner.nextLine();
+
+            products.add(command);
+        }
+    }
+
+    private static void getElementsInList(List<String> products) {
+
+        int count = 1;
+        for (String product : products) {
+
+            System.out.println(count + "." + product);
+
+            count++;
+        }
+    }
+}
+
 
