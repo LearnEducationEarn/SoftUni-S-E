@@ -1,0 +1,53 @@
+package L05_Lists_Exercise;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class P01_Train {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> wagons = Arrays.stream(scanner.nextLine()
+                        .split(" "))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
+
+        int maxWagonCapacity = Integer.parseInt(scanner.nextLine());
+
+        String command = scanner.nextLine();
+        while (!command.equals("end")) {
+
+            String[] currentParts = command.split(" ");
+            String currentCommand = currentParts[0];
+
+            if (currentCommand.equals("Add")) {
+
+                int passengers = Integer.parseInt(currentParts[1]);
+                wagons.add(passengers);
+
+            } else {
+
+                int passengers = Integer.parseInt(currentParts[0]);
+
+                for (int wagon = 0; wagon <= wagons.size() - 1; wagon++) {
+
+                    int finalPassengerCount = passengers + wagons.get(wagon);
+                    if (finalPassengerCount <= maxWagonCapacity) {
+
+                       // wagons.add(wagons.get(wagon));
+                        wagons.add(wagon, finalPassengerCount);
+                        wagons.remove(wagon + 1);
+                        break;
+                    }
+                }
+            }
+            command = scanner.nextLine();
+        }
+
+        System.out.println(wagons.toString().replace("[", "").replace("]", "").replace(", ", " "));
+
+    }
+}
+
+
