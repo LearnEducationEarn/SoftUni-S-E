@@ -1,0 +1,53 @@
+package L05_Lists_Exercise;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class P02_ChangeList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> numbersList = Arrays.stream(scanner.nextLine()
+                                    .split(" "))
+                                    .map(Integer::parseInt)
+                                    .collect(Collectors.toList());
+
+
+        modifyTheListOfNumbers(scanner, numbersList);
+        System.out.println(numbersList.toString().replaceAll("[\\[\\],]", ""));
+    }
+
+    private static void modifyTheListOfNumbers(Scanner scanner, List<Integer> numbersList) {
+
+        String command = scanner.nextLine();
+        while (!command.equals("end")) {
+
+            String[] currentParts = command.split(" ");
+            String currentCommand = currentParts[0];
+
+            switch (currentCommand) {
+                case "Delete" -> {
+
+                    int element = Integer.parseInt(currentParts[1]);
+                    for (int i = 0; i <= numbersList.size() - 1; i++) {
+
+                        if (numbersList.contains(element)) {
+
+                            numbersList.remove(Integer.valueOf(element));
+
+                        }
+                    }
+                }
+                case "Insert" -> {
+
+                    int element = Integer.parseInt(currentParts[1]);
+                    int position = Integer.parseInt(currentParts[2]);
+
+                    numbersList.add(position, element);
+                }
+            }
+            command = scanner.nextLine();
+        }
+    }
+}
+
