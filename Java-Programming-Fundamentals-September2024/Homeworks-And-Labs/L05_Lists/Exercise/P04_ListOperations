@@ -1,0 +1,101 @@
+package L05_Lists_Exercise;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+public class P04_ListOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> numbers = Arrays.stream(scanner.nextLine()
+                                .split(" "))
+                                .map(Integer::parseInt)
+                                .collect(Collectors.toList());
+
+
+        String command = scanner.nextLine();
+        while (!command.equals("End")) {
+
+            String[] commandParts = command.split("\\s+");
+            String currentCommand = commandParts[0];
+
+            switch (currentCommand) {
+
+                case "Add" -> {
+                    int numberToAdd = Integer.parseInt(commandParts[1]);
+                    numbers.add(numberToAdd);
+
+                }
+                case "Insert" -> {
+                    int numberToInsert = Integer.parseInt(commandParts[1]);
+                    int index = Integer.parseInt(commandParts[2]);
+
+                    boolean isValidIndex = checkIfIndexValid(index, numbers.size() -1);
+
+                    if (isValidIndex) {
+
+                        numbers.add(index, numberToInsert);
+                    } else {
+
+                        System.out.println("Invalid index");
+                    }
+                }
+                case "Remove" -> {
+                    int indexToRemove = Integer.parseInt(commandParts[1]);
+
+                    boolean isValidIndex = checkIfIndexValid(indexToRemove, numbers.size() -1);
+                    if (isValidIndex) {
+
+                        numbers.remove(indexToRemove);
+                    } else {
+
+                        System.out.println("Invalid index");
+                    }
+
+                }
+                case "Shift" -> {
+                    String typeSide = commandParts[1];
+                    int count = Integer.parseInt(commandParts[2]);
+                    if (typeSide.equals("left")) {
+
+                        shiftLeft(numbers, count);
+
+                    } else if (typeSide.equals("right")) {
+
+                        shiftRight(numbers, count);
+                    }
+                }
+            }
+
+            command = scanner.nextLine();
+        }
+        for (int element : numbers) {
+            System.out.print(element + " ");
+        }
+
+    }
+
+    private static boolean checkIfIndexValid(int index, int lastIndex) {
+
+    return index >= 0 && index <= lastIndex;
+    }
+
+    private static void shiftLeft(List<Integer> numbers, int count) {
+
+        for (int i = 1; i <= count; i++) {
+
+            int firstElement = numbers.get(0);
+            numbers.add(firstElement);
+            numbers.remove(0);
+        }
+    }
+
+    private static void shiftRight(List<Integer> numbers, int count) {
+
+        for (int i = 1; i <= count; i++) {
+
+            int lastElement = numbers.get(numbers.size() - 1);
+            numbers.add(0, lastElement);
+            numbers.remove(numbers.size() - 1);
+        }
+    }
+}
