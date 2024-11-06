@@ -1,1 +1,86 @@
+package L05_Lists_Exercise;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class P09_PokemonDoNotGo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> distance = Arrays.stream(scanner.nextLine()
+                        .split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
+
+                int sumOfAllElements = 0;
+
+                while (!distance.isEmpty()){
+
+                    int index = Integer.parseInt(scanner.nextLine());
+
+                    if(index < 0){
+
+                        int removedElement = distance.get(0);
+
+                        distance.remove(0);
+
+                        sumOfAllElements += removedElement;
+
+                        int lastElement = distance.get(distance.size() - 1);
+
+                        distance.add(lastElement);
+
+                        modifyList(distance, removedElement);
+
+                    } else if (index > distance.size() - 1) {
+
+
+                        int lastElement = distance.get(distance.size() - 1);
+
+                        distance.remove(distance.size() - 1);
+
+                        sumOfAllElements += lastElement;
+
+                        int firstElement = distance.get(0);
+
+                        distance.add(firstElement);
+                        modifyList(distance, lastElement);
+
+                    }else {
+
+
+                        int removedElement = distance.get(index);
+
+                        sumOfAllElements += removedElement;
+
+                        distance.remove(index);
+
+                        modifyList(distance, removedElement);
+
+                    }
+                }
+                System.out.println(sumOfAllElements);
+            }
+
+            private static void modifyList(List<Integer> pokemonList, int removedElement) {
+
+                for (int i = 0; i < pokemonList.size(); i++) {
+
+                    int currentElement = pokemonList.get(i);
+
+                    if(currentElement <= removedElement){
+
+                        currentElement += removedElement;
+                    }else {
+
+                        currentElement -= removedElement;
+                    }
+                    pokemonList.set(i, currentElement);
+                }
+
+            }
+        }
+
 
