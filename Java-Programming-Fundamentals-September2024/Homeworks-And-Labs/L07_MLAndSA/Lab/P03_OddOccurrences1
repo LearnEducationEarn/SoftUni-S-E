@@ -1,0 +1,51 @@
+package L07_MapsLambdaAndStreamAPI_Lab;
+import java.util.*;
+
+import java.util.Scanner;
+
+
+public class P03_OddOccurrences1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] words = scanner.nextLine().split("\\s+");
+
+        Map<String, Integer> wordsMap = new LinkedHashMap<>();
+
+        for (String word : words) {
+
+            String wordToLowerCase = word.toLowerCase();
+
+            if (!wordsMap.containsKey(wordToLowerCase)) {
+
+                wordsMap.put(wordToLowerCase, 1);
+
+            } else {
+
+                wordsMap.put(wordToLowerCase, wordsMap.get(wordToLowerCase) + 1);
+            }
+        }
+
+        ArrayList<String> odd = new ArrayList<>();
+
+        for (Map.Entry<String, Integer> entry : wordsMap.entrySet()) {
+
+            if (entry.getValue() % 2 == 1) {
+
+                odd.add(entry.getKey());
+            }
+        }
+
+        for (int i = 0; i <= odd.size() - 1; i++) {
+
+            System.out.print(odd.get(i));
+
+            if (i < odd.size() - 1 ) {
+
+                System.out.print(", ");
+            }
+        }
+
+    }
+}
+
