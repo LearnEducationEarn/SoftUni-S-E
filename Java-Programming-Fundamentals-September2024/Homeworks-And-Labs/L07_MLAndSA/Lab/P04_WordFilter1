@@ -1,1 +1,18 @@
+package L07_MapsLambdaAndStreamAPI_Lab;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+public class P04_WordFilter1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<String> words = Arrays.stream(scanner.nextLine().split("\\s+")).filter(w -> w.length() % 2 == 0).collect(Collectors.toList());
+
+        for (String element : words) {
+
+            System.out.println(element);
+        }
+    }
+}
+
 
