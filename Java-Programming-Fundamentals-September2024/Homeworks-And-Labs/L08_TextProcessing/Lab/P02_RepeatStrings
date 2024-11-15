@@ -1,0 +1,33 @@
+package L08_TextProcessing_Lab;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class P02_RepeatStrings {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        String[] words = scanner.nextLine().split("\\s+");
+
+        List<String> result = new ArrayList<>();
+
+        for (String word : words) {
+
+
+            for (int i = 0; i <= word.length() - 1; i++) {
+
+            result.add(word);
+
+            }
+        }
+
+        for (String word : result) {
+
+            System.out.print(word);
+        }
+    }
+}
+
+
