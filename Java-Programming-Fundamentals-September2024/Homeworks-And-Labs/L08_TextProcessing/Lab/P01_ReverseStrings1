@@ -1,1 +1,29 @@
+package L08_TextProcessing_Lab;
+
+import java.util.Scanner;
+
+public class P01_ReverseStrings1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String word = scanner.nextLine();
+
+        while (!word.equals("end")) {
+
+            String reversedWord = "";
+
+            for (int position = word.length() - 1; position >= 0; position--) {
+
+                char symbol = word.charAt(position);
+                reversedWord = reversedWord + symbol;
+            }
+
+            System.out.printf("%s = %s%n", word, reversedWord);
+
+            word = scanner.nextLine();
+
+        }
+    }
+}
+
 
