@@ -1,0 +1,31 @@
+package L08_TextProcessing_Lab;
+
+import java.util.Scanner;
+
+public class P03_Substring1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String firstText = scanner.nextLine();
+        String secondText = scanner.nextLine();
+
+        int indexOfOccurrence = indexOfOccurrence(secondText, firstText);
+
+        while (indexOfOccurrence != -1) {
+
+            secondText = secondText.replace(firstText, "");
+
+            indexOfOccurrence = secondText.indexOf(firstText);
+
+        }
+        System.out.printf("%s", secondText);
+
+    }
+
+    private static int indexOfOccurrence(String secondText, String firstText) {
+
+        return secondText.indexOf(firstText);
+
+    }
+}
+
