@@ -1,1 +1,26 @@
+package L08_TextProcessing_Lab;
+import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
+public class P04_TextFilter1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<String> forbiddenWords = Arrays.stream(scanner.nextLine().split(", ")).collect(Collectors.toList());
+
+        String text = scanner.nextLine();
+
+        for (String word : forbiddenWords) {
+
+            String replaceWord = "*";
+            replaceWord = replaceWord.repeat(word.length());
+
+            text = text.replace(word, replaceWord);
+        }
+
+        System.out.println(text);
+
+    }
+}
