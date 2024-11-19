@@ -1,0 +1,39 @@
+package L08_TextProcessing_Lab;
+
+import java.util.Scanner;
+
+public class P05_DigitsLettersAndOther {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+
+        StringBuilder letters = new StringBuilder();
+        StringBuilder digits = new StringBuilder();
+        StringBuilder symbols = new StringBuilder();
+        for (char symbol : input.toCharArray()) {
+
+            if (Character.isLetter(symbol)) {
+
+                letters.append(symbol);
+
+            } else if (Character.isDigit(symbol)) {
+
+                digits.append(symbol);
+
+            } else  {
+
+                symbols.append(symbol);
+
+            }
+        }
+
+        System.out.println(digits);
+        System.out.println(letters);
+        System.out.println(symbols);
+
+    }
+}
+
+
