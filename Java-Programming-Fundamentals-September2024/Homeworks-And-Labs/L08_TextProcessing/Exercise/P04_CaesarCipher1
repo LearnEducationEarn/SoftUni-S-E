@@ -1,1 +1,25 @@
+package L08_TextProcessing_Exercise;
+
+import java.util.Scanner;
+
+public class P04_CaesarCipher1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+
+        StringBuilder result = new StringBuilder();
+
+        for (char symbol : text.toCharArray()) {
+
+            char currentSymbol = (char) (symbol + 3);
+
+            result.append(currentSymbol);
+
+        }
+
+        System.out.println(result);
+
+    }
+}
 
