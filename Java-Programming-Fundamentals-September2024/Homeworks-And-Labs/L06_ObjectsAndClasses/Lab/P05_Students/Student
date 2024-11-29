@@ -11,11 +11,7 @@ public class Student {
 
 
     public Student() {
-        //нов празен обект
-        //firstName:
-        //secondName:
-        //age:
-        //hometown:
+     
     }
     public Student(String firstName, String lastname, int age, String hometown) {
 
