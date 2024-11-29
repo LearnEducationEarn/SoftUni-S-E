@@ -1,1 +1,45 @@
+package L06_ObjectsAndClasses_Lab.P05_Students;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        List<Student> studentsList = new ArrayList<>();
+
+        String input = scanner.nextLine();   
+
+        while (!input.equals("end")) {
+
+            String[] commandParts = input.split(" ");
+            String firstName = commandParts[0];
+            String lastName = commandParts[1];
+            int age = Integer.parseInt(commandParts[2]) ;
+            String hometown = commandParts[3];
+
+
+            Student student = new Student(firstName, lastName, age, hometown);
+            studentsList.add(student);
+
+
+            input = scanner.nextLine();
+        }
+
+        String searchedTown = scanner.nextLine();
+
+        for (Student student : studentsList) {
+         
+            if (student.getHometown().equals(searchedTown)) {
+
+                System.out.printf("%s %s is %d years old%n", student.getFirstName(), student.getLastName(), student.getAge());
+            }
+        }
+
+    }
+}
+
 
