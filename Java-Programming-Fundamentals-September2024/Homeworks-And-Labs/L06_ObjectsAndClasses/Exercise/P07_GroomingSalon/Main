@@ -36,11 +36,7 @@ public class Main {
                 // Count
                 System.out.println(salon.getCount()); // 2
 
-                // Get Statistics
                 System.out.println(salon.getStatistics());
-                // The grooming salon has the following clients:
-                //Bella Mia
-                //Zak Jon
-
+              
     }
 }
