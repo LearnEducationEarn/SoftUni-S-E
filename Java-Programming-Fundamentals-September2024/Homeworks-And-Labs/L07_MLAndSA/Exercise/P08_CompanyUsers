@@ -1,0 +1,51 @@
+package L07_MapsLambdaAndStreamAPI_Exercise;
+
+import java.util.Scanner;
+import java.util.*;
+
+public class P08_CompanyUsers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String, List<String>> companyEmployees = new LinkedHashMap<>();
+
+        String input = scanner.nextLine();
+
+        while (!input.equals("End")) {
+            
+            String companyName = input.split(" -> ")[0]; //име на компания
+            String employeeId = input.split(" -> ")[1]; //служител
+
+           
+            if (companyEmployees.containsKey(companyName)) {
+               
+                List<String> currentEmployees = companyEmployees.get(companyName);
+                if (!currentEmployees.contains(employeeId)) {
+                    currentEmployees.add(employeeId);
+                }
+            }
+           
+            else {
+
+                companyEmployees.put(companyName, new ArrayList<>());
+                companyEmployees.get(companyName).add(employeeId);
+            }
+
+
+            input = scanner.nextLine();
+        }
+
+       
+        companyEmployees.entrySet().forEach(entry -> {
+                 
+                    String companyName = entry.getKey();
+                    List<String> employeesList = entry.getValue();
+
+                    System.out.println(companyName);
+                    for (String employee : employeesList) {
+                        System.out.println("-- " + employee);
+                    }
+                });
+    }
+}
+
