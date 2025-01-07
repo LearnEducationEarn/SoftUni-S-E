@@ -1,1 +1,83 @@
+package FinalExamPreparation_Lab;
 
+import java.util.Scanner;
+
+public class P01_SecretChat {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        StringBuilder concealedMessage = new StringBuilder(scanner.nextLine());
+
+        String command = scanner.nextLine();
+
+
+        while (!command.equals("Reveal")) {
+
+           
+            String[] currentData = command.split(":\\|:");
+            String currentCommand = currentData[0];
+
+            switch (currentCommand) {
+
+                case "InsertSpace" -> {
+              
+                    int index = Integer.parseInt(currentData[1]);
+                    
+                    concealedMessage.insert(index, " ");
+                    System.out.println(concealedMessage);
+                }
+
+                case "Reverse" -> {
+                    StringBuilder substring = new StringBuilder(currentData[1]);
+                    
+
+                   
+                    if (!concealedMessage.toString().contains(substring)) {
+
+                        
+                        System.out.println("error");
+
+                    } else {
+
+                        
+                        int firstIndex = concealedMessage.indexOf(substring.toString());//0
+                        int lastIndex = firstIndex + substring.length();//3
+                       
+                        String reversedString = substring.reverse().toString();
+                       
+                        concealedMessage.delete(firstIndex, lastIndex);
+                      
+                        concealedMessage.append(substring);
+                        System.out.println(concealedMessage);
+
+                    }
+                }
+
+                case "ChangeAll" -> {
+
+                    String substringToReplace = currentData[1];
+                    String replacement = currentData[2];
+
+                    
+
+                    while (concealedMessage.toString().contains(substringToReplace)) {
+
+                        int firstIndex = concealedMessage.indexOf(substringToReplace);
+                        int lastIndex = firstIndex + substringToReplace.length();
+                        concealedMessage.replace(firstIndex, lastIndex, replacement);
+                    }
+
+                    System.out.println(concealedMessage);
+
+                }
+            }
+            command = scanner.nextLine();
+        }
+
+
+        System.out.println("You have a new text message: " + concealedMessage);
+
+
+    }
+}
