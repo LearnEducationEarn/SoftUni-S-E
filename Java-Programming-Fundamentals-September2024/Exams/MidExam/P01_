@@ -1,1 +1,44 @@
+package MidExam;
+
+import java.util.Scanner;
+
+public class P01_CookingMasterclass {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        int students = Integer.parseInt(scanner.nextLine());
+        double pricePerPackageFlour = Double.parseDouble(scanner.nextLine());
+        double pricePerSingleEgg = Double.parseDouble(scanner.nextLine());
+        double pricePerSingleApron = Double.parseDouble(scanner.nextLine());
+
+
+       double totalPriceForFlour = pricePerPackageFlour * students;
+       int countFlour = students * 1;
+       if (countFlour % 5 == 0) {
+
+           totalPriceForFlour = totalPriceForFlour - (totalPriceForFlour / 5);
+       }
+        double moreApron = Math.ceil(students * 0.20 + students);
+        double totalPriceForSingleEgg = (pricePerSingleEgg * 10) * students;
+
+        double totalPriceForApron = pricePerSingleApron  * moreApron;
+
+        double total = totalPriceForFlour + totalPriceForSingleEgg + totalPriceForApron;
+
+
+        if (total <= budget) {
+
+            System.out.printf("Items purchased for %.2f$.", total);
+
+        } else {
+
+            double diff = total - budget;
+
+            System.out.printf("%.2f$ more needed.", diff);
+        }
+
+    }
+}
+
 
