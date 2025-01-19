@@ -1,1 +1,42 @@
+package L01_StacksAndQueues_Lab;
+import java.util.ArrayDeque;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Scanner;
+public class P02_SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        String[] expressions = scanner.nextLine().split("\\s+");
+
+        ArrayDeque<String> expressionStack = new ArrayDeque<>();
+        Collections.addAll(expressionStack, expressions);
+
+        while (expressionStack.size() > 1) {
+
+            int firstNumber = Integer.parseInt(expressionStack.pop());
+            String operator = expressionStack.pop();
+            int secondNumber = Integer.parseInt(expressionStack.pop());
+
+            int result = 0;
+
+            if (operator.equals("+")) {
+
+                result = firstNumber + secondNumber;
+
+            } else {
+
+                result = firstNumber - secondNumber;
+
+            }
+
+            expressionStack.push(String.valueOf(result));
+
+        }
+
+        System.out.println(expressionStack.peek());
+
+    }
+}
 
