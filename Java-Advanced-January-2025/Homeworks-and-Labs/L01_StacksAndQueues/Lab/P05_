@@ -1,0 +1,46 @@
+package L01_StacksAndQueues_Lab;
+
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class P05_PrinterQueue {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<String> queue = new ArrayDeque<>();
+
+        String input = scanner.nextLine();
+
+        while (!input.equals("print")) {
+
+
+            if (input.equals("cancel")) {
+
+                if (!queue.isEmpty()) {
+
+
+                    String removeElement = queue.poll();
+
+                    System.out.printf("Canceled %s\n", removeElement);
+
+                } else {
+
+                    System.out.println("Printer is on standby");
+
+                }
+
+            } else {
+
+                queue.offer(input);
+            }
+
+            input = scanner.nextLine();
+        }
+
+        queue.forEach(System.out::println);
+
+
+
+    }
+}
+
