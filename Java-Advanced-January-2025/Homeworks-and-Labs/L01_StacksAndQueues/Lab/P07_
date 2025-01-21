@@ -1,0 +1,56 @@
+package L01_StacksAndQueues_Lab;
+
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class P07_MathPotato {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        PriorityQueue<String> priorityQueue = new PriorityQueue<>();
+
+        Arrays.stream(scanner.nextLine().split("\\s+")).forEach(priorityQueue::offer);
+
+        int n = Integer.parseInt(scanner.nextLine());
+        int rotations = 0;
+
+        while (priorityQueue.size() > 1) {
+
+            String firstKid = priorityQueue.poll();
+
+            rotations++;
+
+            if (isPrime(rotations)) {
+
+                System.out.printf("Prime %s%n", firstKid);
+                priorityQueue.offer(firstKid);
+
+            } else {
+
+                System.out.printf("Removed %s%n", firstKid);
+            }
+        }
+
+        System.out.printf("Last is %s%n", priorityQueue.peek());
+
+    }
+
+    private static Boolean isPrime(int number) {
+
+        if (number == 1) {
+
+            return false;
+        }
+
+        for (int i = 2; i < number; i++) {
+
+            if (number % i == 0) {
+
+                return false;
+            }
+        }
+        return true;
+    }
+}
