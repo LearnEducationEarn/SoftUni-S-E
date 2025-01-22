@@ -1,1 +1,29 @@
+package L01_StacksAndQueues_Exercises;
+
+import java.util.Scanner;
+import java.util.*;
+public class P01_ReverseNumbersWithAStack {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        ArrayDeque<Integer> numbersStack = new ArrayDeque<>();
+
+        int[] numbers = Arrays.stream(scanner.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+
+        for (Integer element : numbers) {
+
+            numbersStack.push(element);
+
+        }
+
+        while (!numbersStack.isEmpty()) {
+
+            int current = numbersStack.pop();
+            System.out.print(current + " ");
+        }
+
+
+    }
+}
 
