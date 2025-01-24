@@ -1,0 +1,37 @@
+package L01_StacksAndQueues_Exercises;
+
+import java.util.Scanner;
+import java.util.*;
+
+public class P03_MaximumElement {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+
+        int countCommands = Integer.parseInt(scanner.nextLine());
+
+        for (int command = 1; command <= countCommands; command++) {
+
+            int currentCommand = scanner.nextInt();
+
+            if (currentCommand == 1) {
+                
+                int number = scanner.nextInt();
+
+                stack.push(number);
+
+            } else if (currentCommand == 2) {
+                
+
+                stack.pop();
+
+            } else if (currentCommand == 3) {
+                
+
+                System.out.println(Collections.max(stack));
+            }
+
+        }
+    }
+}
