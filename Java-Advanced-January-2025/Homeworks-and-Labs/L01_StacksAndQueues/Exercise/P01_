@@ -1,0 +1,22 @@
+package L01_StacksAndQueues_Exercises;
+import java.util.*;
+public class P01_ReverseNumbersWithAStack3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<String> stack = new ArrayDeque<>();
+
+        String[] numbers = scanner.nextLine().split("\\s+");
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            stack.push(numbers[i]);
+
+        }
+
+        for (String element : stack) {
+
+            System.out.print(element + " ");
+        }
+    }
+}
