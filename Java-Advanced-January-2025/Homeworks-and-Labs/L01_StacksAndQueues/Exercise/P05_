@@ -1,0 +1,43 @@
+package L01_StacksAndQueues_Exercises;
+import java.util.*;
+public class P04_BasicQueueOperations1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] input = scanner.nextLine().split("\\s+");
+
+        String[] numbers = scanner.nextLine().split("\\s+");
+
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
+
+        int numberOfElementsToEnqueue = Short.parseShort(input[0]);
+        int numberOfElementsToDequeue = Short.parseShort(input[1]);
+        int numberToCheck = Short.parseShort(input[2]);
+
+        for (short i = 0; i < numberOfElementsToEnqueue; i++) {
+
+            queue.offer(Integer.valueOf(numbers[i]));
+
+        }
+
+        for (short i = 1; i <= numberOfElementsToDequeue; i++) {
+
+            queue.poll();
+
+        }
+
+        if (queue.contains(numberToCheck)) {
+
+            System.out.println("true");
+
+        } else if (queue.isEmpty()) {
+
+            System.out.println(0);
+
+        } else {
+
+            System.out.println(Collections.min(queue));
+
+        }
+    }
+}
