@@ -1,0 +1,57 @@
+package L01_StacksAndQueues_Exercises;
+import java.util.*;
+public class P05_BalancedParentheses1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+        ArrayDeque<Character> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < input.length(); i++) {
+
+            char symbol = input.charAt(i);
+
+            if (symbol == '(' || symbol == '[' || symbol == '{') {
+
+                stack.push(symbol);
+
+            } else {
+
+                if (stack.isEmpty() || !matchingBrackets(stack.pop(), symbol)) {
+
+                    System.out.println("NO");
+
+                    return;
+                }
+            }
+        }
+
+        if (stack.isEmpty()) {
+
+            System.out.println("YES");
+
+        } else {
+
+            System.out.println("NO");
+        }
+
+
+    }
+
+    private static boolean matchingBrackets(char currentSymbol, char symbol) {
+
+        if (currentSymbol == '(') {
+
+            return symbol == ')';
+
+        } else if (currentSymbol == '[') {
+
+            return symbol == ']';
+
+        } else {
+
+            return  symbol == '}';
+        }
+    }
+}
