@@ -1,0 +1,59 @@
+package L01_StacksAndQueues_Exercises;
+
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class P07_SimpleTextEditor {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        short countCommands = Short.parseShort(scanner.nextLine());
+
+        StringBuilder emptyText = new StringBuilder();
+
+        ArrayDeque<String> wordStateStack = new ArrayDeque<>();
+
+        for (int i = 1; i <= countCommands; i++) {
+
+            String currentCommand = scanner.nextLine();
+
+            int currentNumber = Integer.parseInt(currentCommand.split("\\s+")[0]);
+
+            switch (currentNumber) {
+
+                case 1 -> {
+
+                    wordStateStack.push(emptyText.toString());
+
+                    emptyText.append(currentCommand.split("\\s+")[1]);
+
+                }
+
+                case 2 -> {
+
+                    wordStateStack.push(emptyText.toString());
+
+                    int count = Integer.parseInt(currentCommand.split("\\s+")[1]);
+                    int startIndex = emptyText.length() - count;
+
+                    emptyText.delete(startIndex, emptyText.length());
+
+                }
+
+                case 3 -> {
+
+                    int index = Integer.parseInt(currentCommand.split("\\s+")[1]) - 1;
+
+                    System.out.println(emptyText.charAt(index));
+
+                }
+
+                case 4 -> {
+
+                    emptyText = new StringBuilder(wordStateStack.pop());
+
+                }
+            }
+        }
+    }
+}
