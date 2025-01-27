@@ -1,0 +1,86 @@
+package L02_MultidimensionalArrays_Lab;
+import java.util.Scanner;
+import java.util.*;
+public class P01_CompareMatrices2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] input = Arrays.stream(scanner.nextLine()
+                        .split("\\s+"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
+
+        int rowA = input[0];
+        int colA = input[1];
+
+        int[][] matrixA = new int[rowA][colA];
+
+        fillMatrix(matrixA, scanner);
+
+
+        input = Arrays.stream(scanner.nextLine()
+                .split("\\s+"))
+                .mapToInt(Integer::parseInt).toArray();
+
+        int rowB = input[0];
+        int colB = input[1];
+
+        int[][] matrixB = new int[rowB][colB];
+
+        fillMatrix(matrixB, scanner);
+
+        if (!isEqual(matrixA, matrixB)) {
+
+            System.out.println("not equal");
+
+        } else {
+
+            System.out.println("equal");
+
+        }
+
+
+    }
+
+    private static boolean isEqual(int[][] matrixA, int[][] matrixB) {
+
+        if (matrixA.length != matrixB.length) {
+
+            return false;
+
+        }
+
+        if (matrixA[0].length != matrixB[0].length) {
+
+            return false;
+
+        }
+
+        for (int row = 0; row < matrixA.length; row++) {
+
+            for (int col = 0; col < matrixA[row].length; col++) {
+
+                if (matrixA[row][col] != matrixB[row][col]) {
+
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private static void fillMatrix(int[][] matrix, Scanner scanner) {
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            int[] currentRow = Arrays.stream(scanner.nextLine()
+                            .split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
+
+            matrix[row] = currentRow;
+        }
+    }
+
+}
