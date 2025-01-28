@@ -1,1 +1,55 @@
+package L02_MultidimensionalArrays_Lab;
+import java.util.Scanner;
+import java.util.*;
+public class P04_SumMatrixElements {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] input = scanner.nextLine().split(", ");
+
+        short rows = Short.parseShort(input[0]);
+        short columns = Short.parseShort(input[1]);
+
+        int[][] matrix = new int[rows][columns];
+
+        fillMatrix(matrix, scanner);
+
+        printResult(rows, columns, matrix);
+
+    }
+
+    private static void printResult(short rows, short columns, int[][] matrix) {
+
+        System.out.println(rows);
+        System.out.println(columns);
+
+        int sum = 0;
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            for (int col = 0; col < matrix[row].length; col++) {
+
+               sum += matrix[row][col];
+
+            }
+        }
+
+        System.out.println(sum);
+
+    }
+
+    private static void fillMatrix(int[][] matrix, Scanner scanner) {
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            int[] currentRow = Arrays.stream(scanner.nextLine()
+                    .split(", "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+
+            matrix[row] = currentRow;
+
+        }
+    }
+}
 
