@@ -1,0 +1,65 @@
+package L02_MultidimensionalArrays_Lab;
+
+import java.util.Scanner;
+import java.util.*;
+
+public class P06_PrintDiagonalsOfSquareMatrix {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int input = Integer.parseInt(scanner.nextLine());
+
+        int[][] matrix = new int[input][input];
+
+        fillMatrix(matrix, scanner);
+
+
+        primaryDiagonal(matrix);
+        secondaryDiagonal(matrix);
+    }
+
+    private static void secondaryDiagonal(int[][] matrix) {
+
+        int col = 0;
+
+        // намаляваме редовете и увеличаваме колонките
+        for (int row = matrix.length - 1; row >= 0; row--) {
+
+            System.out.print(matrix[row][col] + " ");
+
+            col++;
+        }
+
+        System.out.println();
+    }
+
+    private static void primaryDiagonal(int[][] matrix) {
+
+        int col = 0;
+
+        // увеличаваме редовете и колонките
+        for (int row = 0; row < matrix.length; row++) {
+
+            System.out.print(matrix[row][col] + " ");
+
+            col++;
+        }
+
+        System.out.println();
+
+    }
+
+    private static void fillMatrix(int[][] matrix, Scanner scanner) {
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            int[] currentRow = Arrays.stream(scanner.nextLine()
+                            .split("\\s+"))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+
+            matrix[row] = currentRow;
+
+        }
+    }
+}
