@@ -1,1 +1,78 @@
+package L02_MultidimensionalArrays_Lab;
+import java.util.Arrays;
+import java.util.Scanner;
+public class P05_MaximumSumOf2x2SubMatrix {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] input = Arrays.stream(scanner.nextLine()
+                        .split(", "))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
+
+
+        int rows = input[0];
+        int columns = input[1];
+
+        int[][] matrix = new int[rows][columns];
+
+        fillMatrix(matrix, scanner);
+
+        printSubMatrix(matrix);
+
+    }
+
+    private static void printSubMatrix(int[][] matrix) {
+        int maxSubMatrixSum = 0;
+        int startRow = 0;
+        int startCol = 0;
+
+        for (int row = 0; row < matrix.length - 1; row++) {
+
+            for (int col = 0; col < matrix[row].length - 1; col++) {
+
+                int currentSumOfSubMatrix = matrix[row][col] + matrix[row][col + 1]
+                                            + matrix[row + 1][col] + matrix[row + 1][col + 1];
+
+                if (currentSumOfSubMatrix > maxSubMatrixSum) {
+
+                    maxSubMatrixSum = currentSumOfSubMatrix;
+
+                    startRow = row;
+                    startCol = col;
+
+                }
+            }
+        }
+
+        for (int row = 0; row < 2; row++) {
+
+            for (int col = 0; col < 2; col++) {
+
+                System.out.print(matrix[startRow + row][startCol + col] + " ");
+
+            }
+
+            System.out.println();
+
+        }
+
+        System.out.println(maxSubMatrixSum);
+
+    }
+
+    private static void fillMatrix(int[][] matrix, Scanner scanner) {
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            int[] currentRow = Arrays.stream(scanner.nextLine()
+                                .split(", "))
+                                .mapToInt(Integer::parseInt)
+                                .toArray();
+
+            matrix[row] = currentRow;
+
+        }
+    }
+}
 
