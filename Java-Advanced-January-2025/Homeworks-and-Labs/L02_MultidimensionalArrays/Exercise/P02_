@@ -1,1 +1,102 @@
+package L02_MultidimensionalArrays_Exercises;
+
+import java.util.Scanner;
+
+public class P01_FillTheMatrix1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+        short n = Short.parseShort(input.split(", ")[0]);
+        String pattern = input.split(", ")[1];
+
+        int[][] matrix = new int[n][n];
+
+        executeMatrixPatterns(pattern, matrix);
+
+        printMatrix(matrix);
+
+    }
+
+
+    private static void printMatrix(int[][] matrix) {
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            for (int col = 0; col < matrix[row].length; col++) {
+
+                System.out.print(matrix[row][col] + " ");
+
+            }
+
+            System.out.println();
+
+        }
+    }
+
+
+    private static void executeMatrixPatterns(String pattern, int[][] matrix) {
+        switch (pattern) {
+
+            case "A" -> {
+
+                fillMatrixPatternA(matrix);
+
+            }
+
+            case "B" -> {
+
+               fillMatrixPatternB(matrix);
+
+            }
+        }
+    }
+
+
+    private static void fillMatrixPatternB(int[][] matrix) {
+
+        int startCount = 1;
+
+        for (int col = 0; col < matrix.length; col++) {
+
+            if (col % 2 == 0) {
+
+                for (int row = 0; row < matrix.length; row++) {
+
+                    matrix[row][col] = startCount;
+
+                    startCount++;
+
+                }
+
+            } else {
+
+                for (int row = matrix.length - 1; row >= 0; row--) {
+
+                    matrix[row][col] = startCount;
+
+                    startCount++;
+
+                }
+            }
+        }
+    }
+
+    private static void fillMatrixPatternA(int[][] matrix) {
+
+        int startCount = 1;
+
+        for (int col = 0; col < matrix.length; col++) {
+
+            for (int row = 0; row < matrix[col].length; row++) {
+
+                matrix[row][col] = startCount;
+
+                startCount++;
+
+            }
+        }
+    }
+}
 
