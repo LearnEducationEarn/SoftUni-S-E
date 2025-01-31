@@ -1,0 +1,70 @@
+package L02_MultidimensionalArrays_Exercises;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P03_DiagonalDifference {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        String splitPattern = "\\s+";
+
+        int[][] matrix = readMatrix(n, scanner, splitPattern);
+
+        int rowIndex = 0;
+        int colIndex = 0;
+        int sumOfPrimaryDiagonal = 0;
+
+        for (int row = 0; row < n; row++) {
+
+            int currentNumber = matrix[rowIndex][colIndex];
+
+            sumOfPrimaryDiagonal += currentNumber;
+
+            rowIndex++;
+            colIndex++;
+
+        }
+
+        rowIndex = 0;
+        colIndex = n - 1;
+        int sumOfSecondaryDiagonal = 0;
+
+        for (int row = 0; row < n; row++) {
+
+            int currentNumber = matrix[rowIndex][colIndex];
+
+            sumOfSecondaryDiagonal += currentNumber;
+
+            rowIndex++;
+            colIndex--;
+
+        }
+
+        System.out.println(Math.abs(sumOfPrimaryDiagonal - sumOfSecondaryDiagonal));
+
+
+    }
+
+    private static int[][] readMatrix(int n, Scanner scanner, String splitPattern) {
+
+        int[][] matrix = new int[n][];
+
+        for (int row = 0; row < n; row++) {
+
+            int[] currentRow = Arrays.stream(scanner.nextLine()
+                            .split(splitPattern))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
+
+
+            matrix[row] = currentRow;
+
+        }
+
+        return matrix;
+
+    }
+}
