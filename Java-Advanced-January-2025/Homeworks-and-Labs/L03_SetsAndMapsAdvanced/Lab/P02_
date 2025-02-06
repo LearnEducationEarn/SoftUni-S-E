@@ -1,1 +1,54 @@
+package L03_SetsAndMapsAdvanced_Lab;
+
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class P02_SoftUniParty {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        Set<String> set = new TreeSet<>();
+        Set<String> regularSet = new TreeSet<>();
+
+        String command = scanner.nextLine();
+
+        while (!command.equals("PARTY")) {
+
+            char symbol = command.charAt(0);
+
+            if (Character.isDigit(symbol)) {
+
+                set.add(command);
+
+            } else {
+
+                regularSet.add(command);
+
+            }
+
+            command = scanner.nextLine();
+
+        }
+
+        command = scanner.nextLine();
+
+        while (!command.equals("END")) {
+
+            set.remove(command);
+            regularSet.remove((command));
+
+
+            command = scanner.nextLine();
+
+        }
+
+        System.out.println(set.size() + regularSet.size());
+
+        set.forEach(System.out::println);
+        regularSet.forEach(System.out::println);
+
+    }
+}
 
