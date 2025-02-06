@@ -1,1 +1,64 @@
+package L03_SetsAndMapsAdvanced_Lab;
+
+import java.util.*;
+
+public class P01_ParkingLot {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Set<String> numbersHash = new LinkedHashSet<>();
+
+
+        String input = scanner.nextLine();
+
+        while (!input.equals("END")) {
+
+            String[] inputParts = input.split(", ");
+
+            String currentCommand = inputParts[0];
+
+
+            String number = inputParts[1];
+
+            switch (currentCommand) {
+
+                case "IN" -> numbersHash.add(number);
+
+                case "OUT" -> numbersHash.remove(number);
+
+            }
+
+            input = scanner.nextLine();
+
+        }
+
+        if (isEmpty(numbersHash)) {
+
+            System.out.println("Parking Lot is Empty");
+
+        } else {
+
+            for (String element : numbersHash) {
+
+                System.out.println(element);
+
+
+               //numbersHash.forEach(System.out::println);
+            }
+        }
+    }
+
+    private static boolean isEmpty(Set<String> numbersHash) {
+
+        if (numbersHash.isEmpty()) {
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+}
+
 
