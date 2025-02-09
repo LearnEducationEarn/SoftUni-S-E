@@ -1,1 +1,53 @@
+package L03_SetsAndMapsAdvanced_Lab;
+
+import java.util.*;
+
+public class P05_AverageStudentsGrades {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        short numberOfStudents = Short.parseShort(scanner.nextLine());
+
+        Map<String, List<Double>> map = new TreeMap<>();
+
+        for (int i = 1; i <= numberOfStudents; i++) {
+
+            String[] currentParts = scanner.nextLine().split(" ");
+
+            String studentName = currentParts[0];
+            double grade = Double.parseDouble(currentParts[1]);
+
+            map.putIfAbsent(studentName, new ArrayList<>());
+            map.get(studentName).add(grade);
+
+
+        }
+
+            map.forEach((k, v) -> {
+
+                System.out.print(k + " -> ");
+                v.forEach(grades -> System.out.printf("%.2f ", grades));
+                System.out.printf("(avg: %.2f)\n", getAverageGrade(v));
+
+
+            });
+
+    }
+
+    private static double getAverageGrade(List<Double> grades) {
+
+        double averageGrade = 0;
+
+       for (Double element : grades) {
+
+           averageGrade += element;
+
+       }
+
+      // DoubleSummaryStatistics stats = grades.stream().collect(Collectors.summarizingDouble(Double::doubleValue));
+
+       return averageGrade / grades.size();
+
+    }
+}
 
