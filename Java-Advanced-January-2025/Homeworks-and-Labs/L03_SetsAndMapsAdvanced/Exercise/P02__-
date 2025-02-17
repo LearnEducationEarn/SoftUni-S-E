@@ -1,1 +1,50 @@
+package L03_SetsAndMapsAdvanced_Exercises;
+
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class P02_SetsOfElements {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int[] input = Arrays.stream(scanner.nextLine()
+                        .split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        int firstNum = input[0];
+        int secondNum = input[1];
+
+        Set<Integer> firstSet = new LinkedHashSet<>();
+        Set<Integer> secondSet = new LinkedHashSet<>();
+
+
+        for (int i = 1; i <= firstNum; i++) {
+
+            int currentNumber = Integer.parseInt(scanner.nextLine());
+
+            firstSet.add(currentNumber);
+        }
+
+        for (int i = 1; i <= secondNum; i++) {
+
+            int currentNumber = Integer.parseInt(scanner.nextLine());
+
+            secondSet.add(currentNumber);
+        }
+
+        for (int element : firstSet) {
+
+            if (secondSet.contains(element)) {
+
+                System.out.print(element + " ");
+
+            }
+
+        }
+    }
+}
 
