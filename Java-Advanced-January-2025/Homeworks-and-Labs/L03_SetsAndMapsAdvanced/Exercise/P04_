@@ -1,0 +1,39 @@
+package L03_SetsAndMapsAdvanced_Exercises;
+
+import java.util.*;
+
+public class P04_CountSymbols {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        String input = scanner.nextLine();
+
+
+        Map<Character, Integer> map = new TreeMap<>();
+
+
+        for (int i = 0; i < input.length(); i++) {
+
+            char currentSymbol = input.charAt(i);
+
+            if (!map.containsKey(currentSymbol)) {
+
+                map.put(currentSymbol, 1);
+
+            } else {
+
+                map.put(currentSymbol, map.get(currentSymbol) + 1);
+
+            }
+
+        }
+
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+
+            System.out.printf("%c: %d time/s\n", entry.getKey(), entry.getValue());
+
+        }
+    }
+}
+
