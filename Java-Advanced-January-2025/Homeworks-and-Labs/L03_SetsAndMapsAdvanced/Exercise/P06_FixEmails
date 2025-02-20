@@ -16,9 +16,11 @@ public class P06_FixEmails {
                 Map<String, String> collection = new LinkedHashMap<>();
 
                 while (!command.equals("stop")) {
+
                     email = scanner.nextLine();
 
                     if(!email.endsWith("uk") && !email.endsWith("us") && !email.endsWith("com")){
+
                         collection.put(command, email);
                     }
 
@@ -26,7 +28,8 @@ public class P06_FixEmails {
                     command = scanner.nextLine();
                 }
                 collection.entrySet().stream()
-                        .forEach(entry -> System.out.printf("%s -> %s%n", entry.getKey(), entry.getValue()));
+                        .forEach(entry -> System.out.printf("%s -> %s%n",
+                        entry.getKey(), entry.getValue()));
             }
 
 }
