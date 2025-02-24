@@ -1,1 +1,32 @@
+package L04_StreamsFilesAndDirectories_Lab;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class P01_ReadFile {
+    public static void main(String[] args) throws FileNotFoundException {
+
+        String path = "C:\\Users\\admin\\Desktop\\Java Advanced\\Java-Advanced-January-2025\\src\\L04_StreamsFilesAndDirectories_Lab\\Resources\\input.txt";
+
+
+        try(FileInputStream fileInputStream = new FileInputStream(path)) {
+
+
+            int oneByte = fileInputStream.read();
+
+            while (oneByte >= 0) {
+
+                System.out.printf("%s ", Integer.toBinaryString(oneByte));
+
+                oneByte = fileInputStream.read();
+
+            }
+        } catch (IOException element) {
+
+            element.printStackTrace();
+        }
+
+    }
+}
 
