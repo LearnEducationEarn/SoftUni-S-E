@@ -1,1 +1,22 @@
+package L04_StreamsFilesAndDirectories_Exercises;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class P03_AllCAPITALS {
+    public static void main(String[] args) throws IOException {
+
+        String path = "C:\\Users\\admin\\Desktop\\Java Advanced\\Java-Advanced-January-2025\\src\\L04_StreamsFilesAndDirectories_Exercises\\Resources\\input.txt";
+
+        String pathToUpperCase = Files.readString(Path.of(path));
+
+        pathToUpperCase = pathToUpperCase.toUpperCase();
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("src/L04_StreamsFilesAndDirectories_Exercises/Resources/output.txt"));
+
+        writer.write(pathToUpperCase);
+        writer.close();
+    }
+}
 
