@@ -1,0 +1,32 @@
+package L04_StreamsFilesAndDirectories_Exercises;
+
+import java.io.*;
+
+public class P02_SumBytes {
+    public static void main(String[] args) throws IOException {
+
+        String path = "C:\\Users\\admin\\Desktop\\Java Advanced\\Java-Advanced-January-2025\\src\\L04_StreamsFilesAndDirectories_Exercises\\Resources\\input.txt";
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+
+        String line = bufferedReader.readLine();
+
+        int sum = 0;
+
+        while (line != null) {
+
+           for (char symbol : line.toCharArray()) {
+
+               sum += symbol;
+
+
+           }
+
+            line = bufferedReader.readLine();
+        }
+
+        System.out.println(sum);
+
+    }
+}
+
