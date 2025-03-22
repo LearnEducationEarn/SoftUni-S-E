@@ -1,0 +1,40 @@
+package L05_FunctionalProgramming_Lab;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class P02_SumNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+        Function<String, Integer> sumNumbersFunc = numbersString -> {
+
+            int count = Arrays.stream(numbersString.split(", "))
+                    .mapToInt(Integer::parseInt)
+                    .sum();
+
+
+            return count;
+
+        };
+
+        Function<String, Integer> countNumberFunc = numbersString -> {
+
+            int sum = (int) Arrays.stream(numbersString.split(", "))
+                    .mapToInt(Integer::parseInt)
+                    .count();
+
+
+            return sum;
+
+        };
+
+        System.out.printf("Count = %d\n", countNumberFunc.apply(input));
+        System.out.printf("Sum = %d\n", sumNumbersFunc.apply(input));
+
+    }
+}
+
