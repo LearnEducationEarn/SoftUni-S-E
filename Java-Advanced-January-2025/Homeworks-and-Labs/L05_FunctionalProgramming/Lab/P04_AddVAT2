@@ -1,0 +1,35 @@
+package L05_FunctionalProgramming_Lab;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+public class P04_AddVAT2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Function<Double, Double> addVatFunc = price -> price * 1.20;
+        Consumer<Double> printPrice = price -> System.out.printf("%.2f%n", price);
+
+
+        //Ако искаме scanner да ни изчака с принтирането
+
+        //String input = scanner.nextLine();
+
+        //System.out.println("Prices with VAT:");
+
+//        Arrays.stream(input.split(", "))
+//                .map(Double::parseDouble)
+//                .map(addVatFunc)
+//                .forEach(printPrice);
+
+        System.out.println("Prices with VAT:");
+
+        Arrays.stream(scanner.nextLine().split(", "))
+                .map(Double::parseDouble)
+                .map(addVatFunc)
+                .forEach(printPrice);
+
+    }
+}
