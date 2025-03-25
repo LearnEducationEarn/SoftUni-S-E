@@ -1,1 +1,27 @@
+package L05_FunctionalProgramming_Lab;
+
+import java.util.Scanner;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class P04_AddVAT {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        List<Double> input = Arrays.stream(scanner.nextLine().split(", "))
+                                .map(Double::parseDouble )
+                                .collect(Collectors.toList());
+
+
+        Function<Double, Double> addVatFunc = price -> price * 1.2;
+
+        System.out.println("Prices with VAT:");
+        input.stream().map(addVatFunc).forEach(element -> {
+            System.out.printf("%.2f \n", element);
+        });
+
+    }
+}
 
