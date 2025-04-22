@@ -1,0 +1,18 @@
+package L05_FunctionalProgramming_Exercises;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class P03_CustomMinFunction {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> input = Arrays.stream(scanner.nextLine().split(" "))
+                                    .map(number -> Integer.parseInt(number))
+                                    .collect(Collectors.toList());
+
+        System.out.println(Collections.min(input));
+
+    }
+}
+
