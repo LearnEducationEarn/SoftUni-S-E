@@ -1,0 +1,23 @@
+package L05_FunctionalProgramming_Exercises;
+
+import java.util.Scanner;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.*;
+
+public class P02_KnightsOfHonor {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        List<String> input = Arrays.stream(scanner.nextLine().split(" ")).collect(Collectors.toList());
+
+
+        Consumer<String> consumerPrint = e -> System.out.printf("Sir %s\n", e);
+
+        input.forEach(consumerPrint);
+
+
+    }
+}
+
