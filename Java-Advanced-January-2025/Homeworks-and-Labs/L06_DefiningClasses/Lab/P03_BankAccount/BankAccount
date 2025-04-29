@@ -1,0 +1,48 @@
+package L06_DefiningClasses_Lab.P03_BankAccount;
+
+public class BankAccount {
+
+    // static variables
+    private static double interestRate = 0.02;
+    private static int counter = 0;
+
+
+    // instance variables
+
+    private int id;
+    private double balance;
+
+
+    public BankAccount() {
+
+        counter++;
+
+        this.id = counter;
+
+    }
+
+    public double getInterest(int years) {
+
+        return this.balance * interestRate * years;
+
+    }
+
+    public static void setInterestRate(double interestRate) {
+
+        BankAccount.interestRate = interestRate;
+
+    }
+
+    public void deposit(double amount) {
+
+        this.balance += amount;
+
+    }
+
+    public int getId() {
+
+        return id;
+
+    }
+}
+
