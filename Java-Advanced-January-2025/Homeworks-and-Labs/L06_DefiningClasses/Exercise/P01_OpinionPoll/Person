@@ -1,0 +1,50 @@
+package L06_DefiningClasses_Exercises.P01_OpinionPoll;
+
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+
+        short lines = Short.parseShort(scanner.nextLine());
+
+        Map<String, Integer> personalInformationMap = new TreeMap<>();
+
+        for (int line = 1; line <= lines; line++) {
+
+            String[] inputParts = scanner.nextLine().split("\\s+");
+            String name = inputParts[0];
+            int age = Integer.parseInt(inputParts[1]);
+
+            Person person = new Person();
+
+            person.setAge(age);
+            person.setName(name);
+
+            if (person.getAge() > 30) {
+
+                personalInformationMap.put(person.getName(), person.getAge());
+
+            }
+        }
+
+       // personalInformationMap.entrySet().stream().forEach(person -> System.out.printf("%s - %d\n", person.getKey(), person.getValue()));
+
+        for (Map.Entry<String, Integer> entry : personalInformationMap.entrySet()) {
+
+            String name = entry.getKey();
+            int age = entry.getValue();
+
+
+            System.out.printf("%s - %d\n", name, age);
+        }
+
+    }
+
+
+}
+
