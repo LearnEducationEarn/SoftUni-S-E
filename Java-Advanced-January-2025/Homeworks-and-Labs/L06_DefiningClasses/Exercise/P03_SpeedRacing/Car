@@ -1,0 +1,73 @@
+package L06_DefiningClasses_Exercises.P03_SpeedRacing;
+
+public class Car {
+
+    private String model;
+    private double fuelAmount;
+    private double fuelConsumptionPerKm;
+    private int distanceTraveled;
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public double getFuelAmount() {
+        return fuelAmount;
+    }
+
+    public void setFuelAmount(double fuelAmount) {
+        this.fuelAmount = fuelAmount;
+    }
+
+    public double getFuelConsumptionPerKm() {
+        return fuelConsumptionPerKm;
+    }
+
+    public void setFuelConsumptionPerKm(double fuelConsumptionPerKm) {
+        this.fuelConsumptionPerKm = fuelConsumptionPerKm;
+    }
+
+    public int getDistanceTraveled() {
+        return distanceTraveled;
+    }
+
+    public void setDistanceTraveled(int distanceTraveled) {
+        this.distanceTraveled = distanceTraveled;
+    }
+
+    public Car(String model, double fuelAmount, double fuelCostFor1km, int distanceTraveled) {
+        this.model = model;
+        this.fuelAmount = fuelAmount;
+        this.fuelConsumptionPerKm = fuelCostFor1km;
+        this.distanceTraveled = distanceTraveled;
+    }
+
+    public boolean isMoving(int distance) {
+
+        double actualFuelForTheDistance = fuelConsumptionPerKm * distance;
+
+        if (actualFuelForTheDistance <= fuelAmount) {
+
+            return true;
+        }
+
+
+
+        return false;
+
+    }
+
+    public double getRemainingFuel(int distance) {
+
+
+
+        double remainingAmount = fuelAmount - (distance * fuelConsumptionPerKm);
+
+        return remainingAmount;
+    }
+
+}
