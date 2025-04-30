@@ -1,0 +1,112 @@
+package L06_DefiningClasses_Exercises.P03_SpeedRacing;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        List<Car> cars = new ArrayList<>();
+
+        for (int i = 1; i <= n ; i++) {
+
+            String[] input = scanner.nextLine().split("\\s+");
+            String model = input[0];
+            double amountFuel = Double.parseDouble(input[1]);
+            double consumptionPerKm = Double.parseDouble(input[2]);
+            int distance = 0;
+
+            Car currentCar = new Car(model,amountFuel, consumptionPerKm, distance);
+
+            cars.add(currentCar);
+
+        }
+
+        String command = scanner.nextLine();
+
+        while (!command.equals("End")) {
+
+            String[] commandParts = command.split("\\s+");
+
+            String carModel = commandParts[1];
+            int distance = Integer.parseInt(commandParts[2]);
+
+            boolean isMoving = getCurrentCar(carModel, cars).isMoving(distance);
+
+
+            if (isMoving) {
+
+                // колата може да се движи
+
+
+                Car currentCar = getCurrentCar(carModel, cars);
+
+                double remainingAmount = currentCar.getRemainingFuel(distance);
+                currentCar.setFuelAmount(remainingAmount);
+
+                int currentDistance = currentCar.getDistanceTraveled();
+                currentCar.setDistanceTraveled(currentDistance + distance);
+
+
+                int currentIndex = getIndexAndDeleteCar(currentCar, cars);
+                cars.add(currentIndex, currentCar);
+
+            } else {
+
+                // колата не може да се движи
+                System.out.println("Insufficient fuel for the drive");
+            }
+
+            command = scanner.nextLine();
+
+        }
+
+        cars.forEach(car -> {
+
+            System.out.printf("%s %.2f %d%n", car.getModel(), car.getFuelAmount(), car.getDistanceTraveled());
+
+        });
+    }
+
+    private static int getIndexAndDeleteCar(Car currentCar, List<Car> cars) {
+
+        int index = 0;
+
+        for (int i = 0; i < cars.size() ; i++) {
+
+            Car car = cars.get(i);
+
+            if (car.getModel().equals(currentCar.getModel())) {
+
+                index = i;
+
+                cars.remove(index);
+
+            }
+
+
+
+        }
+        return index;
+
+    }
+
+    private static Car getCurrentCar(String carModel, List<Car> cars) {
+
+        Car currentCar = null;
+
+        for (Car car : cars) {
+
+            if (car.getModel().equals(carModel)) {
+
+                currentCar = car;
+
+            }
+        }
+
+        return currentCar;
+
+    }
+}
