@@ -1,1 +1,27 @@
+package L07_Workshop_Exercise;
+
+public class Element {
+
+    public int value;
+    public Element previous;
+    public Element next;
+
+
+    public Element (int value, Element previous, Element next) {
+
+        this.value = value;
+        this.previous = previous;
+        this.next = next;
+
+    }
+
+    public String toString() {
+
+        return String.valueOf(this.value);
+
+    }
+
+
+
+}
 
