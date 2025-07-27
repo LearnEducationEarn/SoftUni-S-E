@@ -1,1 +1,29 @@
+package L08_Generics_Lab.jar;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Jar<U> {
+
+    private final Deque<U> elements;
+
+    public Jar() {
+
+        this.elements = new ArrayDeque<>();
+
+    }
+
+    public void add(U element) {
+
+        this.elements.push(element);
+
+    }
+
+    public U remove() {
+
+        return this.elements.pop();
+
+    }
+
+}
 
