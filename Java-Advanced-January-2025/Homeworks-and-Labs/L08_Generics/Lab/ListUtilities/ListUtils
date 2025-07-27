@@ -1,1 +1,32 @@
+package L08_Generics_Lab.listUtilities;
+
+import java.util.Collections;
+import java.util.List;
+
+public class ListUtils {
+
+    // U getMin(List<U> list)
+
+    public static <U extends Comparable<U>> U getMin(List<U> list) {
+
+        if (list.isEmpty()) {
+
+            throw new IllegalArgumentException();
+        }
+        return Collections.min(list);
+
+    }
+
+    // U getMax(List<U> list)
+
+    public static <U extends Comparable<U>> U getMax(List<U> list) {
+
+        if (list.isEmpty()) {
+
+            throw new IllegalArgumentException();
+        }
+        return Collections.max(list);
+
+    }
+}
 
