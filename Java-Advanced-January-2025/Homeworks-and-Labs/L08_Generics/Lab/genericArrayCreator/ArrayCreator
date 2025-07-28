@@ -1,0 +1,37 @@
+package L08_Generics_Lab.genericArrayCreator;
+
+import java.lang.reflect.Array;
+
+public class ArrayCreator {
+
+
+    public static <U> U[] create(int length, U item) {
+
+        U[] array = (U[]) Array.newInstance(item.getClass(), length);
+
+
+        for (int i = 0; i < array.length; i++) {
+
+            array[i] = item;
+        }
+
+
+        return array;
+
+    }
+
+    public static <U> U[] create(Class<U> clazz, int length, U item) {
+
+        U[] array = (U[]) Array.newInstance(clazz, length);
+
+
+        for (int i = 0; i < array.length; i++) {
+
+            array[i] = item;
+        }
+
+        return array;
+
+    }
+
+}
