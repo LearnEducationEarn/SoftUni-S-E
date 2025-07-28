@@ -1,1 +1,16 @@
+package L08_Generics_Lab.genericArrayCreator;
+
+public class Main {
+    public static void main(String[] args) {
+
+
+
+        String [] nones = ArrayCreator.create(10, "none");
+        Integer[] numbers = ArrayCreator.create(Integer.class, 1, 3);
+
+
+        System.out.println();
+
+    }
+}
 
