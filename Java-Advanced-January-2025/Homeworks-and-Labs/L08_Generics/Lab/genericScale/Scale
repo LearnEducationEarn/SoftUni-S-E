@@ -1,1 +1,37 @@
+package L08_Generics_Lab.genericScale;
 
+public class Scale<U extends Comparable<U>> {
+
+    private U left;
+    private U right;
+
+    public Scale(U left, U right) {
+
+        this.left = left;
+        this.right = right;
+
+    }
+
+    public U getHeavier() {
+
+        int result = left.compareTo(right);
+        // 0, 1, -1
+
+        // 0 -> двата обекта са равни
+        // 1 -> или положително число, когато първият обект е по-голям от втория
+        // -1 -> или отрицателно число, когато първият вариянт е по-голям от втория
+
+        if (result == 0) {
+
+            return null;
+
+        } else if (result >= 1) {
+
+            return left;
+
+        } else {
+
+            return right;
+        }
+    }
+}
