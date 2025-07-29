@@ -1,0 +1,57 @@
+package L08_Generics_Exercises.P02_GenericBoxOfInteger;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Box<U extends Comparable<U>> {
+
+    private List<U> elements;
+
+    public Box() {
+        this.elements = new ArrayList<>();
+    }
+
+    public void add(U value){
+        this.elements.add(value);
+    }
+
+    public void swap(int index1, int index2){
+
+        U firstValue = elements.get(index1);
+        U secondValue = elements.get(index2);
+
+        this.elements.set(index1, secondValue);
+        this.elements.set(index2, firstValue);
+    }
+
+    public int countGreaterElements(U elementToCompare){
+        int count = 0;
+
+        for (U element : this.elements){
+
+            //Сравняваме дали стойността от списъка е по-голяма от стойността с която сравняваме
+            //първото > второто 1 или повече
+            int result = element.compareTo(elementToCompare);
+            if(result > 0){
+                count++;
+            }
+        }
+        return count;
+
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder builder = new StringBuilder();
+
+        for (U element: this.elements){
+            String stringToAppend = String.format("%s: %s", element.getClass().getName(), element);
+            builder.append(stringToAppend).append(System.lineSeparator());
+
+        }
+
+        return builder.toString();
+    }
+
+}
