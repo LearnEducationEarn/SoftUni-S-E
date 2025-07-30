@@ -1,1 +1,25 @@
+package L08_Generics_Exercises.P04_GenericSwapMethodInteger;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        short n = Short.parseShort(scanner.nextLine());
+
+        Box<Integer> box = new Box<>();
+        for (int i = 1; i <= n; i++) {
+            int number = Integer.parseInt(scanner.nextLine());
+            box.add(number);
+
+        }
+        int index1 = scanner.nextInt();
+        int index2 = scanner.nextInt();
+        box.swap(index1, index2);
+        System.out.println(box);
+
+
+    }
+}
 
