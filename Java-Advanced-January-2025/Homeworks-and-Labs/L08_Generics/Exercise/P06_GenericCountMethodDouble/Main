@@ -1,0 +1,26 @@
+package L08_Generics_Exercises.P06_GenericCountMethodDouble;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        short n = Short.parseShort(scanner.nextLine());
+
+
+        Box<Double> box = new Box<>();
+        for (int i = 1; i <= n ; i++) {
+            double number = Double.parseDouble(scanner.nextLine());;
+            box.add(number);
+
+        }
+
+        double elementToCompare = Double.parseDouble(scanner.nextLine());;
+        System.out.println(box.countGreaterElements(elementToCompare));
+
+
+
+    }
+}
