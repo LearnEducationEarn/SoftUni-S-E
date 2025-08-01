@@ -10,7 +10,6 @@ public class Main {
 
         String command = scanner.nextLine();
 
-
         //•	Print - Prints all elements in the list, each on a separate line.
 
         CustomList<String> customList = new CustomList<>();
