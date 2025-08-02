@@ -1,0 +1,21 @@
+package L08_Generics_Exercises.P10_Tuple;
+
+public class Tuple<U, K> {
+
+
+        private U item1;
+        private K item2;
+
+        public Tuple(U element1, K element2) {
+
+            this.item1 = element1;
+            this.item2 = element2;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("%s -> %s%n",item1.toString(),item2.toString());
+        }
+
+
+}
