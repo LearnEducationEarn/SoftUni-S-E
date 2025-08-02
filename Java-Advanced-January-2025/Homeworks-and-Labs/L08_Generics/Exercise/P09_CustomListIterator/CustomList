@@ -1,0 +1,105 @@
+package L08_Generics_Exercises.P09_CustomListIterator;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class CustomList<U extends Comparable<U>> {
+
+        private List<U> list;
+        public int size;
+
+        public CustomList() {
+            this.list = new ArrayList<>();
+        }
+
+        public void add(U element) {
+            this.size++;
+            list.add(element);
+        }
+
+        public U remove(int index) {
+            if (isNotInRange(index)) {
+                return null;
+            }
+            this.size--;
+            return list.remove(index);
+        }
+
+        public boolean contains(U element) {
+            return list.contains(element);
+        }
+
+        public void swap(int firstIndex, int secondIndex) {
+            if (isNotInRange(firstIndex) || isNotInRange(secondIndex)) {
+                System.out.println("FirstIndex/SecondIndex is not a valid index!");
+            } else {
+                U firstElement = list.get(firstIndex);
+                U secondElement = list.get(secondIndex);
+
+                this.list.set(firstIndex, secondElement);
+                this.list.set(secondIndex, firstElement);
+            }
+        }
+
+        public int countGreaterThen(U element) {
+            int count = 0;
+            for (U t : list) {
+                if (t.compareTo(element) > 0) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        public U getMax() {
+            U max = this.list.get(0);
+
+            for (U current : this.list) {
+                if (current.compareTo(max) > 0) {
+                    max = current;
+                }
+            }
+            return max;
+        }
+
+        public U getMin() {
+            U min = this.list.get(0);
+
+            for (U current : this.list) {
+                if (current.compareTo(min) < 0) {
+                    min = current;
+                }
+            }
+            return min;
+        }
+
+        public U get(int index) {
+            if (isNotInRange(index)) {
+                System.out.println("Index is not valid");
+                return null;
+            }
+            return this.list.get(index);
+        }
+
+        private boolean isNotInRange(int index) {
+            return index < 0 || index >= this.list.size();
+        }
+
+        public Iterator<U> iterator() {
+            return new Iterator<U>() {
+                int index = 0;
+                @Override
+                public boolean hasNext() {
+                    //referira kym nov obekt
+                    return index < list.size();
+                }
+
+                @Override
+                public U next() {
+                    return list.get(index++);
+                }
+            };
+
+    }
+}
