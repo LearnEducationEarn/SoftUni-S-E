@@ -1,0 +1,16 @@
+package L08_Generics_Exercises.P09_CustomListIterator;
+
+public class Sorter {
+
+        public static<U extends Comparable<U>> void sort(CustomList<U> list) {
+            for (int i = 0; i < list.size; i++) {
+                U current = list.get(i);
+                for (int j = i + 1; j < list.size; j++) {
+                    U target = list.get(j);
+                    if (current.compareTo(target) > 0) {
+                        list.swap(i, j);
+                    }
+                }
+            }
+    }
+}
