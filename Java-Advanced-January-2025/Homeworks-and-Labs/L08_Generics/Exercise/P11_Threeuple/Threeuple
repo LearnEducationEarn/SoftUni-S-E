@@ -1,0 +1,28 @@
+package L08_Generics_Exercises.P11_Threeuple;
+
+
+public class Threeuple<U1, U2, U3> extends  Tuple {
+
+
+        private U3 threeUple;
+
+        public Threeuple(U1 key, U2 value, U3 threeUple) {
+
+            super(key, value);
+            this.threeUple = threeUple;
+        }
+
+        public U3 getThreeUple() {
+            return threeUple;
+        }
+
+        public void setThreeUple(U3 threeUple) {
+            this.threeUple = threeUple;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("%s -> %s -> %s", this.key, this.value, this.threeUple);
+        }
+
+}
