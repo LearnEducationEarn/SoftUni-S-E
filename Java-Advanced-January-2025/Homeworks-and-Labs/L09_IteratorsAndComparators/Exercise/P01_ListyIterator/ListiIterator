@@ -1,1 +1,43 @@
+package L09_IteratorsAndComparators_Exercises.P01_ListyIterator;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ListyIterator<U> {
+
+        private List<U> elements;
+        private int currentIndex;
+
+        public ListyIterator(U... elements){
+            this.elements = Arrays.asList(elements);
+            this.currentIndex = 0;
+        }
+
+        public boolean move(){
+            if(hasNext()){
+                this.currentIndex++;
+                return true;
+            }
+
+            return false;
+        }
+
+        public boolean hasNext(){
+            if(currentIndex < elements.size() - 1){
+                return true;
+            }
+
+            return false;
+        }
+
+        public void print(){
+            if(this.elements.size() == 0){
+                throw new IllegalStateException("Invalid Operation!");
+            }
+
+            System.out.println(this.elements.get(this.currentIndex));
+        }
+
+
+}
 
