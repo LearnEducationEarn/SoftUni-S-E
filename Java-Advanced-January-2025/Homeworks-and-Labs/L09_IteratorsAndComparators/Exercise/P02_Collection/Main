@@ -1,1 +1,13 @@
+package L09_IteratorsAndComparators_Exercises.P02_Collection;
 
+
+
+public class Main {
+
+            private static final Engine ENGINE = new Engine();
+
+            public static void main(String[] args) {
+
+                ENGINE.run();
+            }
+}
