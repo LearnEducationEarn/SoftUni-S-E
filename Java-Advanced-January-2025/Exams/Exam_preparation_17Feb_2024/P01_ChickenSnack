@@ -1,1 +1,92 @@
+package Other.Exam_Preparation_17Feb_2024;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Scanner;
+public class P01_ChickenSnack {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        ArrayDeque<Integer> amountOfMoneyStack = new ArrayDeque<>();
+
+        ArrayDeque<Integer> pricesQueue = new ArrayDeque<>();
+
+        Arrays.stream(scanner.nextLine().split("\\s+"))
+                .map(Integer::parseInt)
+                .forEach(amountOfMoneyStack::push);
+
+        Arrays.stream(scanner.nextLine().split("\\s+"))
+                .map(Integer::parseInt)
+                .forEach(pricesQueue::offer);
+
+
+        int ateFoods = 0;
+
+        while (!amountOfMoneyStack.isEmpty() && !pricesQueue.isEmpty()) {
+
+
+            int lastValueFromStack = amountOfMoneyStack.peek();
+            int firstValueFromQueue = pricesQueue.peek();
+
+
+            if (firstValueFromQueue == lastValueFromStack) {
+
+                ateFoods++;
+
+                amountOfMoneyStack.pop();
+                pricesQueue.poll();
+
+            } else if (firstValueFromQueue > lastValueFromStack) {
+
+
+                amountOfMoneyStack.pop();
+                pricesQueue.poll();
+
+
+            } else {
+
+                ateFoods++;
+
+                int change = 0;
+
+                change = (amountOfMoneyStack.peek() - pricesQueue.peek());
+                amountOfMoneyStack.pop();
+                pricesQueue.poll();
+
+                if (amountOfMoneyStack.isEmpty()) {
+
+                    break;
+
+                }
+
+                int addingTheCash = amountOfMoneyStack.peek() + change;
+
+                amountOfMoneyStack.push(addingTheCash);
+
+            }
+        }
+
+        if (ateFoods >= 4) {
+
+            System.out.printf("Gluttony of the day! Henry ate %d foods.\n", ateFoods);
+
+        } else if (ateFoods == 0) {
+
+            System.out.println("Henry remained hungry. He will try next weekend again.");
+
+        } else {
+
+            if (ateFoods > 1) {
+
+                System.out.printf("Henry ate: %d foods.\n", ateFoods);
+
+            } else {
+
+                System.out.printf("Henry ate: %d food.\n", ateFoods);
+
+            }
+        }
+    }
+}
+
 
