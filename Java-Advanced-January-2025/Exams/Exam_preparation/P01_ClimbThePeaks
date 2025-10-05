@@ -1,1 +1,49 @@
+package Other.ExamPreparation_Exercise;
+
+import java.util.*;
+
+public class P01_ClimbThePeaks {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<Integer> quantitiesOfTheDailyPortions = new ArrayDeque<>();
+        ArrayDeque<Integer> quantitiesOfTheDailyStamina = new ArrayDeque<>();
+
+
+        Arrays.stream(scanner.nextLine().split(", "))
+                .map(Integer::parseInt)
+                .forEach(quantitiesOfTheDailyPortions::push);
+        Arrays.stream(scanner.nextLine().split(", "))
+                .map(Integer::parseInt)
+                .forEach(quantitiesOfTheDailyStamina::offer);
+
+
+        Map<List<String>, Integer> map = new HashMap<>();
+
+        while (!quantitiesOfTheDailyPortions.isEmpty() && quantitiesOfTheDailyPortions.isEmpty()) {
+
+            int sum = 0;
+            String peak = "";
+
+
+            sum = quantitiesOfTheDailyStamina.peek() + quantitiesOfTheDailyStamina.peek();
+
+
+
+            if (sum >= 80) {
+
+
+            } else if (sum >= 90) {
+
+
+            } else if (sum >= 100) {
+
+            } else if (sum >= 60) {
+
+
+            }
+
+        }
+    }
+}
 
