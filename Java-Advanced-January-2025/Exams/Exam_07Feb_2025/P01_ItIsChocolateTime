@@ -1,1 +1,112 @@
+package Other.Exam_Preparation_07Feb_2025;
 
+import java.util.*;
+
+public class P01_ItIsChocolateTime {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<Double> milkQueue = new ArrayDeque<>();
+        ArrayDeque<Double> cacaoStack = new ArrayDeque<>();
+
+        Arrays.stream(scanner.nextLine().split("\\s+"))
+                .map(Double::parseDouble)
+                .forEach(milkQueue::offer);
+        Arrays.stream(scanner.nextLine().split("\\s+"))
+                .map(Double::parseDouble)
+                .forEach(cacaoStack::push);
+
+
+        // Cacao Formula: Cacao / Cacao + Milk
+
+
+        double cacaoPercentage = 0.0;
+
+        double milk = 0.0;
+        double cacao = 0.0;
+
+        Map<String, Integer> map = new TreeMap<>();
+
+        int countMilkChocolate = 0;
+        int countDarkChocolate = 0;
+        int countBakingChocolate = 0;
+
+        while (!milkQueue.isEmpty() && !cacaoStack.isEmpty()) {
+
+
+            milk = milkQueue.peek();
+            cacao = cacaoStack.peek();
+
+
+            cacaoPercentage = (cacao / (cacao + milk)) * 100;
+
+
+            if (cacaoPercentage == 30) {
+
+                countMilkChocolate++;
+
+                milkQueue.poll();
+                cacaoStack.pop();
+
+
+            } else if (cacaoPercentage == 50) {
+
+
+                countDarkChocolate++;
+
+                milkQueue.poll();
+                cacaoStack.pop();
+
+
+            } else if (cacaoPercentage == 100) {
+
+                countBakingChocolate++;
+
+                milkQueue.poll();
+                cacaoStack.pop();
+
+
+            } else {
+
+                double addMilk = milkQueue.peek() + 10;
+                cacaoStack.pop();
+                milkQueue.pop();
+                milkQueue.offer(addMilk);
+            }
+        }
+        map.put("Milk Chocolate", countMilkChocolate);
+        map.put("Dark Chocolate", countDarkChocolate);
+        map.put("Baking Chocolate", countBakingChocolate);
+
+        String name = "";
+        int count = 0;
+
+        if (countDarkChocolate >= 1 && countMilkChocolate >= 1 && countBakingChocolate >= 1) {
+
+            System.out.println("It’s a Chocolate Time. All chocolate types are prepared.");
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+
+                name = entry.getKey();
+                count = entry.getValue();
+
+                System.out.printf("# %s --> %d%n", name, count);
+            }
+
+        } else {
+
+            System.out.println("Sorry, but you didn't succeed to prepare all types of chocolates.");
+
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+
+                name = entry.getKey();
+                count = entry.getValue();
+
+                if (count != 0) {
+
+                    System.out.printf("# %s --> %d%n", name, count);
+
+                }
+            }
+        }
+    }
+}
