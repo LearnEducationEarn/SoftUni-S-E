@@ -1,0 +1,150 @@
+package Exam;
+
+import java.util.*;
+
+public class P01_MedievalAlchemy {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<Integer> substanceStack = new ArrayDeque<>();
+        ArrayDeque<Integer> crystalQueue = new ArrayDeque<>();
+
+        Arrays.stream(scanner.nextLine().split(", "))
+                .map(Integer::parseInt)
+                .forEach(substanceStack::push);
+        Arrays.stream(scanner.nextLine().split(", "))
+                .map(Integer::parseInt)
+                .forEach(crystalQueue::offer);
+
+        Map<String, Integer> potions = new LinkedHashMap<>();
+        potions.put("Brew of Immortality", 110);
+        potions.put("Essence of Resilience", 100);
+        potions.put("Draught of Wisdom", 90);
+        potions.put("Potion of Agility", 80);
+        potions.put("Elixir of Strength", 70);
+
+
+        Map<String, Integer> craftedPotions = new LinkedHashMap<>();
+
+        while (!substanceStack.isEmpty() && !crystalQueue.isEmpty() && craftedPotions.size() < 5) {
+            int substance = substanceStack.pop();
+            int crystal = crystalQueue.poll();
+            int combinedEnergy = substance + crystal;
+
+            boolean potionCrafted = false;
+            for (Map.Entry<String, Integer> entry : potions.entrySet()) {
+                if (entry.getValue() == combinedEnergy && !craftedPotions.containsKey(entry.getKey())) {
+                    craftedPotions.put(entry.getKey(), entry.getValue());
+                    potionCrafted = true;
+                    break;
+                }
+            }
+
+            if (!potionCrafted) {
+                for (Map.Entry<String, Integer> entry : potions.entrySet()) {
+                    if (entry.getValue() < combinedEnergy && !craftedPotions.containsKey(entry.getKey())) {
+                        craftedPotions.put(entry.getKey(), entry.getValue());
+                        crystal -= 20;
+                        if (crystal > 0) {
+                            crystalQueue.offer(crystal);
+                        }
+                        potionCrafted = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!potionCrafted) {
+                crystal -= 5;
+                if (crystal > 0) {
+                    crystalQueue.offer(crystal);
+                }
+            }
+        }
+        printResults(craftedPotions, substanceStack, crystalQueue);
+    }
+
+    private static void printResults(Map<String, Integer> craftedPotions, Deque<Integer> substanceStack, Deque<Integer> crystalQueue) {
+
+        if (craftedPotions.size() == 5) {
+
+            System.out.println("Success! The alchemist has forged all potions!");
+
+        } else {
+
+            System.out.println("The alchemist failed to complete his quest.");
+
+        }
+
+        if (!craftedPotions.isEmpty()) {
+
+            System.out.print("Crafted potions: ");
+
+            boolean first = true;
+
+            for (String potion : craftedPotions.keySet()) {
+
+                if (!first) {
+
+                    System.out.print(", ");
+
+                }
+
+                System.out.print(potion);
+
+                first = false;
+
+            }
+
+            System.out.println();
+
+        }
+
+        if (!substanceStack.isEmpty()) {
+
+            System.out.print("Substances: ");
+
+            boolean first = true;
+
+            while (!substanceStack.isEmpty()) {
+
+                if (!first) {
+
+                    System.out.print(", ");
+
+                }
+
+                System.out.print(substanceStack.pop());
+
+                first = false;
+
+            }
+
+            System.out.println();
+        }
+
+        if (!crystalQueue.isEmpty()) {
+
+            System.out.print("Crystals: ");
+
+            boolean first = true;
+
+            while (!crystalQueue.isEmpty()) {
+
+                if (!first) {
+
+                    System.out.print(", ");
+
+                }
+
+                System.out.print(crystalQueue.poll());
+
+                first = false;
+
+            }
+
+            System.out.println();
+
+        }
+    }
+}
